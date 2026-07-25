@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const fetch = require('node-fetch');
-const crypto = require('crypto');
 
 // ==============================
 // CONFIG – ROLE IDs
@@ -11,7 +10,7 @@ const ROLE_UPDATES = '<@&1530516105846587483>';
 const ROLE_STATUS = '<@&1530529602265550988>';    
 
 // ==============================
-// STATE LOADING
+// STATE
 // ==============================
 const stateFile = path.join(__dirname, '../../state.json');
 let previous = { games: [], updates: [], status: [], lastStatusMessageId: null };
@@ -27,7 +26,7 @@ if (fs.existsSync(stateFile)) {
 }
 
 // ==============================
-// FETCH HELPERS
+// HELPERS
 // ==============================
 async function fetchFile(url) {
   const res = await fetch(url);
@@ -35,42 +34,48 @@ async function fetchFile(url) {
   return res.text();
 }
 
-// ==============================
-// WEBHOOK SENDER (with embed support)
-// ==============================
-async function sendWebhook(webhookUrl, content, embed = null) {
-  const payload = {};
-  if (content) payload.content = content;
-  if (embed) payload.embeds = [embed];
-  const res = await fetch(webhookUrl, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
-  });
-  if (!res.ok) {
-    const text = await res.text();
-    return { success: false, error: text };
+async function sendWebhook(webhookUrl, content, embed = null, wait = false) {
+  const url = wait ? `${webhookUrl}?wait=true` : webhookUrl;
+  const payload = { content, embeds: embed ? [embed] : [] };
+  let res;
+  let attempt = 0;
+  const maxAttempts = 3;
+  while (attempt < maxAttempts) {
+    try {
+      res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (res.status === 429) {
+        const retryAfter = parseInt(res.headers.get('retry-after')) * 1000 || 2000;
+        console.log(`⏳ Rate limited, waiting ${retryAfter}ms...`);
+        await new Promise(r => setTimeout(r, retryAfter));
+        attempt++;
+        continue;
+      }
+      if (!res.ok) {
+        const text = await res.text();
+        return { success: false, error: text };
+      }
+      let data = {};
+      try { data = await res.json(); } catch (e) {}
+      return { success: true, data };
+    } catch (e) {
+      attempt++;
+      if (attempt >= maxAttempts) return { success: false, error: e.message };
+      await new Promise(r => setTimeout(r, 1000 * attempt));
+    }
   }
-  let data = {};
-  try {
-    data = await res.json();
-  } catch (e) { /* ignore */ }
-  return { success: true, data };
+  return { success: false, error: 'Max retries exceeded' };
 }
 
-// ==============================
-// BUILD EMBEDS
-// ==============================
 function buildGameEmbed(game) {
-  // Determine image: prefer steamAppId banner, fallback to game.image
+  // Banner: try Steam, fallback to game.image
   let imageUrl = null;
   if (game.steamAppId) {
     imageUrl = `https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/${game.steamAppId}/header.jpg`;
-  }
-  // If game.image is set and we have no Steam ID or if image is set and we want to use it (you can decide)
-  // We'll use game.image if it exists and is not a default steamgriddb image (optional)
-  // For simplicity: always use game.image if it's set, because you might have chosen a better one.
-  if (game.image && game.image.startsWith('http')) {
+  } else if (game.image) {
     imageUrl = game.image;
   }
 
@@ -85,8 +90,8 @@ function buildGameEmbed(game) {
     title: game.title,
     description: game.description ? game.description.slice(0, 4000) : 'No description available.',
     color: 0xb367d6,
-    url: 'https://ghostreleases.com',
-    fields: fields,
+    url: `https://ghostreleases.com/game-${game.id}.html`, // future HTML page
+    fields,
     image: imageUrl ? { url: imageUrl } : undefined,
     footer: { text: 'Ghost Releases' }
   };
@@ -95,33 +100,30 @@ function buildGameEmbed(game) {
 function buildUpdateEmbed(update, gameTitle) {
   const fields = [];
   if (update.date) fields.push({ name: 'Date', value: update.date, inline: true });
-  if (update.mirrors && update.mirrors.length > 0) {
+  if (update.mirrors?.length) {
     const links = update.mirrors.map(m => `[${m.host}](${m.url})`).join(' | ');
     fields.push({ name: 'Download Links', value: links, inline: false });
   } else if (update.downloadUrl) {
     fields.push({ name: 'Download Link', value: `[Download](${update.downloadUrl})`, inline: false });
   }
-  if (update.steps && update.steps.length > 0) {
+  if (update.steps?.length) {
     const steps = update.steps.map((s, i) => `${i+1}. ${s}`).join('\n');
     fields.push({ name: 'Installation Steps', value: steps.slice(0, 1024), inline: false });
   }
-
   return {
     title: `${gameTitle} – ${update.version}`,
     description: update.description ? update.description.slice(0, 4000) : 'No patch notes provided.',
     color: 0xf0a030,
-    url: 'https://ghostreleases.com',
-    fields: fields,
+    url: `https://ghostreleases.com/game-${update.gameId}.html`,
+    fields,
     footer: { text: 'Ghost Releases' }
   };
 }
 
-// ==============================
-// Helper to compute hash of downloadParts (for repack detection)
-// ==============================
-function hashDownloadParts(parts) {
-  const str = JSON.stringify(parts.map(p => ({ name: p.name, size: p.size, mirrors: p.mirrors, url: p.url })));
-  return crypto.createHash('md5').update(str).digest('hex');
+function getDownloadHash(game) {
+  // Create a hash of the downloadParts to detect changes
+  const parts = game.downloadParts || [];
+  return JSON.stringify(parts.map(p => ({ name: p.name, size: p.size, urls: (p.mirrors || []).map(m => m.url).concat(p.url || []).sort() })));
 }
 
 // ==============================
@@ -134,13 +136,13 @@ async function run() {
     console.log('📡 Fetching status.html...');
     const statusHtml = await fetchFile('https://ghostreleases.com/status.html');
 
-    // --- Parse gamesData ---
+    // Parse gamesData
     const gameMatch = scriptJs.match(/const gamesData = (\[[\s\S]*?\]);/);
     if (!gameMatch) throw new Error('Could not find gamesData');
     const gamesData = eval(gameMatch[1]);
     console.log(`✅ Parsed gamesData: ${gamesData.length} games`);
 
-    // --- Parse repackProjects ---
+    // Parse repackProjects
     const statusMatch = statusHtml.match(/const repackProjects = (\[[\s\S]*?\]);/);
     if (!statusMatch) throw new Error('Could not find repackProjects');
     const repackProjects = eval(statusMatch[1]);
@@ -150,25 +152,25 @@ async function run() {
     // DETECT CHANGES
     // ==============================
 
-    // New games (by id)
+    // New games
     const newGames = gamesData.filter(g => !previous.games.some(p => p.id === g.id));
-    // Also detect repack updates: games that exist but have different downloadParts hash
+    console.log(`🔍 New games: ${newGames.length}`);
+
+    // Updated repacks (downloadParts changed)
     const updatedRepacks = gamesData.filter(g => {
       const prev = previous.games.find(p => p.id === g.id);
       if (!prev) return false;
-      const currentHash = hashDownloadParts(g.downloadParts || []);
-      const prevHash = prev.downloadPartsHash || '';
-      return currentHash !== prevHash;
+      return prev.downloadHash !== getDownloadHash(g);
     });
-    console.log(`🔍 New games: ${newGames.length}, Updated repacks: ${updatedRepacks.length}`);
+    console.log(`🔍 Updated repacks: ${updatedRepacks.length}`);
 
-    // New updates (full objects)
+    // New updates
     const newUpdates = [];
     gamesData.forEach(g => {
       const prevUpdates = previous.updates.filter(u => u.gameId === g.id);
       (g.updates || []).forEach(u => {
         if (!prevUpdates.some(p => p.version === u.version && p.gameId === g.id)) {
-          newUpdates.push({ ...u, gameTitle: g.title });
+          newUpdates.push({ ...u, gameTitle: g.title, gameId: g.id });
         }
       });
     });
@@ -187,39 +189,40 @@ async function run() {
     // ==============================
     // SEND WEBHOOKS
     // ==============================
+
     const webhookReleases = process.env.WEBHOOK_RELEASES;
     const webhookUpdates = process.env.WEBHOOK_UPDATES;
     const webhookStatus = process.env.WEBHOOK_STATUS;
 
     let newState = {
-      games: gamesData.map(g => ({ id: g.id, title: g.title, downloadPartsHash: hashDownloadParts(g.downloadParts || []) })),
+      games: gamesData.map(g => ({ id: g.id, title: g.title, downloadHash: getDownloadHash(g) })),
       updates: gamesData.flatMap(g => (g.updates || []).map(u => ({ gameId: g.id, version: u.version, date: u.date }))),
       status: currentStatus,
       lastStatusMessageId: previous.lastStatusMessageId
     };
 
-    // --- RELEASES (new games + updated repacks) ---
-    const allReleases = [...newGames, ...updatedRepacks];
-    if (allReleases.length > 0 && webhookReleases) {
-      // Send role ping + intro
-      let intro = `${ROLE_RELEASES} **🎮 New Release(s):**`;
-      if (updatedRepacks.length > 0) intro += `\n*Note: Some games have been repacked (download links changed).*`;
-      await sendWebhook(webhookReleases, intro);
-      for (const game of allReleases) {
+    // --- RELEASES (new + updated repacks) ---
+    const releaseItems = [...newGames, ...updatedRepacks];
+    if (releaseItems.length > 0 && webhookReleases) {
+      await sendWebhook(webhookReleases, `${ROLE_RELEASES} **🎮 New Release(s):**`);
+      for (const game of releaseItems) {
+        const isUpdate = updatedRepacks.includes(game);
         const embed = buildGameEmbed(game);
-        try {
-          await sendWebhook(webhookReleases, null, embed);
-          console.log(`✅ Sent release embed for ${game.title}`);
-        } catch (err) {
-          console.log(`⚠️ Failed to send embed for ${game.title}: ${err.message}`);
+        // Add a note if it's an updated repack
+        if (isUpdate) {
+          embed.description = (embed.description || '') + '\n\n🔄 **This repack has been updated** – new download parts available!';
         }
-        await new Promise(r => setTimeout(r, 500));
+        const result = await sendWebhook(webhookReleases, null, embed);
+        if (result.success) {
+          console.log(`✅ Sent release embed for ${game.title}`);
+        } else {
+          console.log(`❌ Failed to send release for ${game.title}: ${result.error}`);
+        }
+        await new Promise(r => setTimeout(r, 800));
       }
-      console.log(`✅ Sent ${allReleases.length} release embeds.`);
-    } else if (allReleases.length > 0) {
-      console.log('⚠️ No WEBHOOK_RELEASES secret.');
+      console.log(`✅ Sent ${releaseItems.length} release embeds.`);
     } else {
-      console.log('ℹ️ No new releases or repack updates.');
+      console.log('ℹ️ No new releases or updated repacks.');
     }
 
     // --- UPDATES ---
@@ -227,24 +230,22 @@ async function run() {
       await sendWebhook(webhookUpdates, `${ROLE_UPDATES} **🔄 New Update(s):**`);
       for (const update of newUpdates) {
         const embed = buildUpdateEmbed(update, update.gameTitle);
-        try {
-          await sendWebhook(webhookUpdates, null, embed);
-          console.log(`✅ Sent update embed for ${update.gameTitle} – ${update.version}`);
-        } catch (err) {
-          console.log(`⚠️ Failed to send update for ${update.gameTitle}: ${err.message}`);
+        const result = await sendWebhook(webhookUpdates, null, embed);
+        if (result.success) {
+          console.log(`✅ Sent update embed for ${update.gameTitle}`);
+        } else {
+          console.log(`❌ Failed to send update for ${update.gameTitle}: ${result.error}`);
         }
-        await new Promise(r => setTimeout(r, 500));
+        await new Promise(r => setTimeout(r, 800));
       }
       console.log(`✅ Sent ${newUpdates.length} update embeds.`);
-    } else if (newUpdates.length > 0) {
-      console.log('⚠️ No WEBHOOK_UPDATES secret.');
     } else {
       console.log('ℹ️ No new updates.');
     }
 
     // --- STATUS (delete old, send new) ---
     if ((newStatus.length > 0 || changedStatus.length > 0) && webhookStatus) {
-      // Delete previous message
+      // Delete old message using `?wait=true` to get ID
       if (previous.lastStatusMessageId) {
         try {
           const delRes = await fetch(`${webhookStatus}/messages/${previous.lastStatusMessageId}`, { method: 'DELETE' });
@@ -269,12 +270,12 @@ async function run() {
       }
       statusText += '\n📊 Check the Status page for more details!';
 
-      const result = await sendWebhook(webhookStatus, statusText);
-      if (result.success && result.data.id) {
+      const result = await sendWebhook(webhookStatus, statusText, null, true);
+      if (result.success && result.data && result.data.id) {
         newState.lastStatusMessageId = result.data.id;
         console.log('✅ New status sent and ID saved.');
       } else {
-        console.log('⚠️ Status sent but ID not stored:', result.error || 'unknown');
+        console.log('⚠️ Status sent but ID not stored.');
       }
     } else {
       console.log('ℹ️ No status changes.');
