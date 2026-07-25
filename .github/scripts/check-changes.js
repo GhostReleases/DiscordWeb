@@ -3,19 +3,22 @@ const path = require('path');
 const fetch = require('node-fetch');
 
 // ==============================
-// CONFIG – ROLE IDs 
+// CONFIG – ROLE IDs
 // ==============================
 const ROLE_RELEASES = '<@&1530516129158529175>';   
 const ROLE_UPDATES = '<@&1530516105846587483>';    
-const ROLE_STATUS = '<@&1530529602265550988>';     
+const ROLE_STATUS = '<@&1530529602265550988>';    
 
 // ==============================
 // 1. Load previous state
 // ==============================
 const stateFile = path.join(__dirname, '../../state.json');
-let previous = { games: [], updates: [], status: [] };
+let previous = { games: [], updates: [], status: [], lastStatusMessageId: null };
 if (fs.existsSync(stateFile)) {
   previous = JSON.parse(fs.readFileSync(stateFile, 'utf8'));
+  console.log('📂 Loaded previous state.');
+} else {
+  console.log('📂 No previous state found. Will treat everything as new.');
 }
 
 // ==============================
@@ -23,37 +26,38 @@ if (fs.existsSync(stateFile)) {
 // ==============================
 async function fetchFile(url) {
   const res = await fetch(url);
-  if (!res.ok) throw new Error(`Failed to fetch ${url}`);
+  if (!res.ok) throw new Error(`Failed to fetch ${url} (status: ${res.status})`);
   return res.text();
 }
 
 async function run() {
   try {
+    console.log('📡 Fetching script.js...');
     const scriptJs = await fetchFile('https://ghostreleases.com/script.js');
+    console.log('✅ script.js fetched (length: ' + scriptJs.length + ' chars)');
+    
+    console.log('📡 Fetching status.html...');
     const statusHtml = await fetchFile('https://ghostreleases.com/status.html');
+    console.log('✅ status.html fetched (length: ' + statusHtml.length + ' chars)');
 
     // --- Parse gamesData from script.js ---
     const gameMatch = scriptJs.match(/const gamesData = (\[[\s\S]*?\]);/);
-    if (!gameMatch) throw new Error('Could not find gamesData');
+    if (!gameMatch) throw new Error('Could not find gamesData in script.js');
     const gamesData = eval(gameMatch[1]);
-    console.log(`📊 Total games parsed: ${gamesData.length}`);
-    console.log(`📊 Last 3 games:`, gamesData.slice(-3).map(g => g.title));
-    console.log(`📊 New games found:`, newGames.map(g => g.title));
+    console.log('✅ Parsed gamesData: ' + gamesData.length + ' games');
 
     // --- Parse repackProjects from status.html ---
     const statusMatch = statusHtml.match(/const repackProjects = (\[[\s\S]*?\]);/);
-    if (!statusMatch) throw new Error('Could not find repackProjects');
+    if (!statusMatch) throw new Error('Could not find repackProjects in status.html');
     const repackProjects = eval(statusMatch[1]);
+    console.log('✅ Parsed repackProjects: ' + repackProjects.length + ' projects');
 
     // ==============================
     // 3. Detect changes
     // ==============================
 
-    // 3a. New games (by id)
+    // 3a. Current data (for comparison)
     const currentGames = gamesData.map(g => ({ id: g.id, title: g.title }));
-    const newGames = currentGames.filter(g => !previous.games.some(p => p.id === g.id));
-
-    // 3b. New updates (by version + gameId)
     const currentUpdates = gamesData.flatMap(g =>
       (g.updates || []).map(u => ({
         gameId: g.id,
@@ -63,30 +67,48 @@ async function run() {
         description: u.description || ''
       }))
     );
-    const newUpdates = currentUpdates.filter(u =>
-      !previous.updates.some(p => p.version === u.version && p.gameId === u.gameId)
-    );
-
-    // 3c. New status projects (by name)
     const currentStatus = repackProjects.map(p => ({
       name: p.name,
       status: p.status,
       eta: p.eta,
       details: p.details || ''
     }));
+
+    // Detect new games
+    const newGames = currentGames.filter(g => !previous.games.some(p => p.id === g.id));
+    console.log(`🔍 New games: ${newGames.length}`);
+    if (newGames.length > 0) {
+      console.log('   New game titles:', newGames.map(g => g.title).join(', '));
+    }
+
+    // Detect new updates
+    const newUpdates = currentUpdates.filter(u =>
+      !previous.updates.some(p => p.version === u.version && p.gameId === u.gameId)
+    );
+    console.log(`🔍 New updates: ${newUpdates.length}`);
+
+    // Detect new status projects
     const newStatus = currentStatus.filter(p =>
       !previous.status.some(s => s.name === p.name)
     );
+    console.log(`🔍 New status: ${newStatus.length}`);
+    if (newStatus.length > 0) {
+      console.log('   New status projects:', newStatus.map(p => p.name).join(', '));
+    }
 
-    // Also detect status changes (ETA/status updated)
+    // Detect status changes (ETA/status updated)
     const changedStatus = currentStatus.filter(p => {
       const prev = previous.status.find(s => s.name === p.name);
       if (!prev) return false;
       return prev.status !== p.status || prev.eta !== p.eta;
     });
+    console.log(`🔍 Status changes: ${changedStatus.length}`);
+    if (changedStatus.length > 0) {
+      console.log('   Changed projects:', changedStatus.map(p => p.name).join(', '));
+    }
 
     // ==============================
-    // 4. Build messages WITH ROLE PINGS
+    // 4. Build messages
     // ==============================
 
     // --- RELEASES (only new games) ---
@@ -139,49 +161,85 @@ async function run() {
     const webhookUpdates = process.env.WEBHOOK_UPDATES;
     const webhookStatus = process.env.WEBHOOK_STATUS;
 
+    // Prepare new state (to save after sending)
+    const newState = {
+      games: currentGames,
+      updates: currentUpdates,
+      status: currentStatus,
+      lastStatusMessageId: previous.lastStatusMessageId // will update if we send a new status
+    };
+
+    // --- Send releases ---
     if (releaseMsg && webhookReleases) {
+      console.log('📤 Sending releases webhook...');
       await fetch(webhookReleases, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ content: releaseMsg })
       });
       console.log('✅ Release webhook sent.');
+    } else if (!releaseMsg) {
+      console.log('ℹ️ No new releases to send.');
+    } else {
+      console.log('⚠️ No WEBHOOK_RELEASES secret found.');
     }
 
+    // --- Send updates ---
     if (updatesMsg && webhookUpdates) {
+      console.log('📤 Sending updates webhook...');
       await fetch(webhookUpdates, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ content: updatesMsg })
       });
       console.log('✅ Update webhook sent.');
+    } else if (!updatesMsg) {
+      console.log('ℹ️ No new updates to send.');
+    } else {
+      console.log('⚠️ No WEBHOOK_UPDATES secret found.');
     }
 
+    // --- Send status with auto-delete ---
     if (statusMsg && webhookStatus) {
-      await fetch(webhookStatus, {
+      // Delete old status message if we have its ID
+      if (previous.lastStatusMessageId) {
+        try {
+          const deleteUrl = `${webhookStatus}/messages/${previous.lastStatusMessageId}`;
+          await fetch(deleteUrl, { method: 'DELETE' });
+          console.log('🗑️ Deleted old status message');
+        } catch (e) {
+          console.log('⚠️ Could not delete old status message:', e.message);
+        }
+      }
+      // Send new status message
+      console.log('📤 Sending status webhook...');
+      const response = await fetch(webhookStatus, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ content: statusMsg })
       });
-      console.log('✅ Status webhook sent.');
-    }
-
-    if (!releaseMsg && !updatesMsg && !statusMsg) {
-      console.log('ℹ️ No changes detected. Nothing sent.');
+      const result = await response.json();
+      if (result.id) {
+        newState.lastStatusMessageId = result.id;
+        console.log('✅ New status message sent. ID saved:', result.id);
+      } else {
+        console.log('⚠️ Could not get message ID from response.');
+      }
+    } else if (!statusMsg) {
+      console.log('ℹ️ No status changes to send.');
+    } else {
+      console.log('⚠️ No WEBHOOK_STATUS secret found.');
     }
 
     // ==============================
-    // 6. Save new state
+    // 6. Save new state (including the new message ID)
     // ==============================
-    const newState = {
-      games: currentGames,
-      updates: currentUpdates,
-      status: currentStatus
-    };
     fs.writeFileSync(stateFile, JSON.stringify(newState, null, 2));
+    console.log('💾 State saved.');
 
   } catch (error) {
     console.error('❌ Error:', error.message);
+    console.error(error.stack);
     process.exit(1);
   }
 }
