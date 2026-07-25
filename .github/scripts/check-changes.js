@@ -3,6 +3,13 @@ const path = require('path');
 const fetch = require('node-fetch');
 
 // ==============================
+// CONFIG – ROLE IDs 
+// ==============================
+const ROLE_RELEASES = '<@&1530516129158529175>';   
+const ROLE_UPDATES = '<@&1530516105846587483>';    
+const ROLE_STATUS = '<@&1530529602265550988>';     
+
+// ==============================
 // 1. Load previous state
 // ==============================
 const stateFile = path.join(__dirname, '../../state.json');
@@ -28,7 +35,7 @@ async function run() {
     // --- Parse gamesData from script.js ---
     const gameMatch = scriptJs.match(/const gamesData = (\[[\s\S]*?\]);/);
     if (!gameMatch) throw new Error('Could not find gamesData');
-    const gamesData = eval(gameMatch[1]); // safe because we control the source
+    const gamesData = eval(gameMatch[1]);
 
     // --- Parse repackProjects from status.html ---
     const statusMatch = statusHtml.match(/const repackProjects = (\[[\s\S]*?\]);/);
@@ -68,7 +75,7 @@ async function run() {
       !previous.status.some(s => s.name === p.name)
     );
 
-    // Also detect status changes (ETA/status updated for existing projects)
+    // Also detect status changes (ETA/status updated)
     const changedStatus = currentStatus.filter(p => {
       const prev = previous.status.find(s => s.name === p.name);
       if (!prev) return false;
@@ -76,42 +83,57 @@ async function run() {
     });
 
     // ==============================
-    // 4. Build messages
+    // 4. Build messages WITH ROLE PINGS
     // ==============================
 
+    // --- RELEASES (only new games) ---
     let releaseMsg = '';
     if (newGames.length > 0) {
+      releaseMsg += `${ROLE_RELEASES}\n`;
       releaseMsg += '**🎮 New Release(s):**\n';
       newGames.forEach(g => releaseMsg += `• **${g.title}** (ID: ${g.id})\n`);
-    }
-    if (newUpdates.length > 0) {
-      if (releaseMsg) releaseMsg += '\n';
-      releaseMsg += '**🔄 New Update(s):**\n';
-      newUpdates.forEach(u => {
-        releaseMsg += `• **${u.gameTitle}** – \`${u.version}\` (${u.date})\n`;
-        if (u.description) releaseMsg += `  _${u.description.substring(0, 80)}${u.description.length > 80 ? '…' : ''}_\n`;
-      });
+      releaseMsg += '\n📥 Download now on our website!';
     }
 
-    let statusMsg = '';
-    if (newStatus.length > 0) {
-      statusMsg += '**📊 New Status Project(s):**\n';
-      newStatus.forEach(p => statusMsg += `• **${p.name}** – ${p.status.toUpperCase()} (ETA: ${p.eta})\n`);
-    }
-    if (changedStatus.length > 0) {
-      if (statusMsg) statusMsg += '\n';
-      statusMsg += '**🔄 Status Updated:**\n';
-      changedStatus.forEach(p => {
-        const prev = previous.status.find(s => s.name === p.name);
-        statusMsg += `• **${p.name}** – ${prev.status} → ${p.status} | ETA: ${prev.eta} → ${p.eta}\n`;
+    // --- UPDATES (only game updates) ---
+    let updatesMsg = '';
+    if (newUpdates.length > 0) {
+      updatesMsg += `${ROLE_UPDATES}\n`;
+      updatesMsg += '**🔄 New Game Update(s):**\n';
+      newUpdates.forEach(u => {
+        updatesMsg += `• **${u.gameTitle}** – \`${u.version}\` (${u.date})\n`;
+        if (u.description) updatesMsg += `  _${u.description.substring(0, 80)}${u.description.length > 80 ? '…' : ''}_\n`;
       });
+      updatesMsg += '\n🔄 Check the website for download links and patch notes!';
+    }
+
+    // --- STATUS (new or changed projects) ---
+    let statusMsg = '';
+    if (newStatus.length > 0 || changedStatus.length > 0) {
+      statusMsg += `${ROLE_STATUS}\n`;
+      statusMsg += '**📊 Status Update(s):**\n';
+      
+      if (newStatus.length > 0) {
+        statusMsg += '\n*New projects added:*\n';
+        newStatus.forEach(p => statusMsg += `• **${p.name}** – ${p.status.toUpperCase()} (ETA: ${p.eta})\n`);
+      }
+      
+      if (changedStatus.length > 0) {
+        statusMsg += '\n*Status changes:*\n';
+        changedStatus.forEach(p => {
+          const prev = previous.status.find(s => s.name === p.name);
+          statusMsg += `• **${p.name}** – ${prev.status} → ${p.status} | ETA: ${prev.eta} → ${p.eta}\n`;
+        });
+      }
+      statusMsg += '\n📊 Check the Status page for more details!';
     }
 
     // ==============================
-    // 5. Send to Discord
+    // 5. Send to Discord (separate webhooks)
     // ==============================
 
     const webhookReleases = process.env.WEBHOOK_RELEASES;
+    const webhookUpdates = process.env.WEBHOOK_UPDATES;
     const webhookStatus = process.env.WEBHOOK_STATUS;
 
     if (releaseMsg && webhookReleases) {
@@ -123,6 +145,15 @@ async function run() {
       console.log('✅ Release webhook sent.');
     }
 
+    if (updatesMsg && webhookUpdates) {
+      await fetch(webhookUpdates, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ content: updatesMsg })
+      });
+      console.log('✅ Update webhook sent.');
+    }
+
     if (statusMsg && webhookStatus) {
       await fetch(webhookStatus, {
         method: 'POST',
@@ -132,7 +163,7 @@ async function run() {
       console.log('✅ Status webhook sent.');
     }
 
-    if (!releaseMsg && !statusMsg) {
+    if (!releaseMsg && !updatesMsg && !statusMsg) {
       console.log('ℹ️ No changes detected. Nothing sent.');
     }
 
