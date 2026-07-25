@@ -36,6 +36,9 @@ async function run() {
     const gameMatch = scriptJs.match(/const gamesData = (\[[\s\S]*?\]);/);
     if (!gameMatch) throw new Error('Could not find gamesData');
     const gamesData = eval(gameMatch[1]);
+    console.log(`📊 Total games parsed: ${gamesData.length}`);
+    console.log(`📊 Last 3 games:`, gamesData.slice(-3).map(g => g.title));
+    console.log(`📊 New games found:`, newGames.map(g => g.title));
 
     // --- Parse repackProjects from status.html ---
     const statusMatch = statusHtml.match(/const repackProjects = (\[[\s\S]*?\]);/);
