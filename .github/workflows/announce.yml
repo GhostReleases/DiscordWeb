@@ -1,9 +1,9 @@
-name: Check for new releases/updates
+name: Check for changes
 
 on:
   schedule:
-    - cron: '0 */6 * * *'  # runs every 6 hours
-  workflow_dispatch:        # allows manual trigger
+    - cron: '0 */6 * * *'  # every 6 hours
+  workflow_dispatch:        # manual trigger (for testing)
 
 jobs:
   check:
@@ -17,11 +17,11 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Fetch and compare
+      - name: Install dependencies
+        run: npm install node-fetch@2
+
+      - name: Run change checker
         env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        run: |
-          # Fetch the script.js from your website (or from the repo)
-          curl -o script.js https://ghostreleases.com/script.js
-          # We'll use a Node script to parse and compare
-          node .github/scripts/check-releases.js
+          WEBHOOK_RELEASES: ${{ secrets.WEBHOOK_RELEASES }}
+          WEBHOOK_STATUS: ${{ secrets.WEBHOOK_STATUS }}
+        run: node .github/scripts/check-changes.js
