@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const fetch = require('node-fetch');
+const crypto = require('crypto');
 
 // ==============================
 // CONFIG – ROLE IDs
@@ -38,7 +39,9 @@ async function fetchFile(url) {
 // WEBHOOK SENDER (with embed support)
 // ==============================
 async function sendWebhook(webhookUrl, content, embed = null) {
-  const payload = { content, embeds: embed ? [embed] : [] };
+  const payload = {};
+  if (content) payload.content = content;
+  if (embed) payload.embeds = [embed];
   const res = await fetch(webhookUrl, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -48,13 +51,10 @@ async function sendWebhook(webhookUrl, content, embed = null) {
     const text = await res.text();
     return { success: false, error: text };
   }
-  // Try to parse JSON (Discord returns the message data)
   let data = {};
   try {
     data = await res.json();
-  } catch (e) {
-    // Some webhook responses aren't JSON (e.g., rate limits)
-  }
+  } catch (e) { /* ignore */ }
   return { success: true, data };
 }
 
@@ -62,15 +62,18 @@ async function sendWebhook(webhookUrl, content, embed = null) {
 // BUILD EMBEDS
 // ==============================
 function buildGameEmbed(game) {
-  // Determine image URL: try Steam banner first, fallback to game.image
+  // Determine image: prefer steamAppId banner, fallback to game.image
   let imageUrl = null;
   if (game.steamAppId) {
     imageUrl = `https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/${game.steamAppId}/header.jpg`;
-  } else if (game.image) {
+  }
+  // If game.image is set and we have no Steam ID or if image is set and we want to use it (you can decide)
+  // We'll use game.image if it exists and is not a default steamgriddb image (optional)
+  // For simplicity: always use game.image if it's set, because you might have chosen a better one.
+  if (game.image && game.image.startsWith('http')) {
     imageUrl = game.image;
   }
 
-  // Build fields
   const fields = [];
   if (game.VersionNumber) fields.push({ name: 'Version', value: game.VersionNumber, inline: true });
   if (game.cracker) fields.push({ name: 'Cracked By', value: game.cracker, inline: true });
@@ -81,7 +84,7 @@ function buildGameEmbed(game) {
   return {
     title: game.title,
     description: game.description ? game.description.slice(0, 4000) : 'No description available.',
-    color: 0xb367d6, // Purple
+    color: 0xb367d6,
     url: 'https://ghostreleases.com',
     fields: fields,
     image: imageUrl ? { url: imageUrl } : undefined,
@@ -106,11 +109,19 @@ function buildUpdateEmbed(update, gameTitle) {
   return {
     title: `${gameTitle} – ${update.version}`,
     description: update.description ? update.description.slice(0, 4000) : 'No patch notes provided.',
-    color: 0xf0a030, // Orange/gold for updates
+    color: 0xf0a030,
     url: 'https://ghostreleases.com',
     fields: fields,
     footer: { text: 'Ghost Releases' }
   };
+}
+
+// ==============================
+// Helper to compute hash of downloadParts (for repack detection)
+// ==============================
+function hashDownloadParts(parts) {
+  const str = JSON.stringify(parts.map(p => ({ name: p.name, size: p.size, mirrors: p.mirrors, url: p.url })));
+  return crypto.createHash('md5').update(str).digest('hex');
 }
 
 // ==============================
@@ -138,8 +149,18 @@ async function run() {
     // ==============================
     // DETECT CHANGES
     // ==============================
+
+    // New games (by id)
     const newGames = gamesData.filter(g => !previous.games.some(p => p.id === g.id));
-    console.log(`🔍 New games: ${newGames.length}`);
+    // Also detect repack updates: games that exist but have different downloadParts hash
+    const updatedRepacks = gamesData.filter(g => {
+      const prev = previous.games.find(p => p.id === g.id);
+      if (!prev) return false;
+      const currentHash = hashDownloadParts(g.downloadParts || []);
+      const prevHash = prev.downloadPartsHash || '';
+      return currentHash !== prevHash;
+    });
+    console.log(`🔍 New games: ${newGames.length}, Updated repacks: ${updatedRepacks.length}`);
 
     // New updates (full objects)
     const newUpdates = [];
@@ -171,34 +192,47 @@ async function run() {
     const webhookStatus = process.env.WEBHOOK_STATUS;
 
     let newState = {
-      games: gamesData.map(g => ({ id: g.id, title: g.title })),
+      games: gamesData.map(g => ({ id: g.id, title: g.title, downloadPartsHash: hashDownloadParts(g.downloadParts || []) })),
       updates: gamesData.flatMap(g => (g.updates || []).map(u => ({ gameId: g.id, version: u.version, date: u.date }))),
       status: currentStatus,
       lastStatusMessageId: previous.lastStatusMessageId
     };
 
-    // --- RELEASES (one embed per game) ---
-    if (newGames.length > 0 && webhookReleases) {
-      // Send role ping + intro text
-      await sendWebhook(webhookReleases, `${ROLE_RELEASES} **🎮 New Release(s):**`);
-      for (const game of newGames) {
+    // --- RELEASES (new games + updated repacks) ---
+    const allReleases = [...newGames, ...updatedRepacks];
+    if (allReleases.length > 0 && webhookReleases) {
+      // Send role ping + intro
+      let intro = `${ROLE_RELEASES} **🎮 New Release(s):**`;
+      if (updatedRepacks.length > 0) intro += `\n*Note: Some games have been repacked (download links changed).*`;
+      await sendWebhook(webhookReleases, intro);
+      for (const game of allReleases) {
         const embed = buildGameEmbed(game);
-        await sendWebhook(webhookReleases, null, embed);
+        try {
+          await sendWebhook(webhookReleases, null, embed);
+          console.log(`✅ Sent release embed for ${game.title}`);
+        } catch (err) {
+          console.log(`⚠️ Failed to send embed for ${game.title}: ${err.message}`);
+        }
         await new Promise(r => setTimeout(r, 500));
       }
-      console.log(`✅ Sent ${newGames.length} release embeds.`);
-    } else if (newGames.length > 0) {
+      console.log(`✅ Sent ${allReleases.length} release embeds.`);
+    } else if (allReleases.length > 0) {
       console.log('⚠️ No WEBHOOK_RELEASES secret.');
     } else {
-      console.log('ℹ️ No new releases.');
+      console.log('ℹ️ No new releases or repack updates.');
     }
 
-    // --- UPDATES (one embed per update) ---
+    // --- UPDATES ---
     if (newUpdates.length > 0 && webhookUpdates) {
       await sendWebhook(webhookUpdates, `${ROLE_UPDATES} **🔄 New Update(s):**`);
       for (const update of newUpdates) {
         const embed = buildUpdateEmbed(update, update.gameTitle);
-        await sendWebhook(webhookUpdates, null, embed);
+        try {
+          await sendWebhook(webhookUpdates, null, embed);
+          console.log(`✅ Sent update embed for ${update.gameTitle} – ${update.version}`);
+        } catch (err) {
+          console.log(`⚠️ Failed to send update for ${update.gameTitle}: ${err.message}`);
+        }
         await new Promise(r => setTimeout(r, 500));
       }
       console.log(`✅ Sent ${newUpdates.length} update embeds.`);
@@ -221,7 +255,6 @@ async function run() {
         }
       }
 
-      // Build status message
       let statusText = `${ROLE_STATUS} **📊 Status Update(s):**\n`;
       if (newStatus.length > 0) {
         statusText += '\n*New projects added:*\n';
