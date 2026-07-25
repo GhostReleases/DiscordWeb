@@ -3,7 +3,7 @@ const path = require('path');
 const fetch = require('node-fetch');
 
 // ==============================
-// CONFIG – ROLE IDs
+// CONFIG – ROLE IDs 
 // ==============================
 const ROLE_RELEASES = '<@&1530516129158529175>';   
 const ROLE_UPDATES = '<@&1530516105846587483>';    
@@ -32,6 +32,67 @@ async function fetchFile(url) {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`Failed to fetch ${url} (status: ${res.status})`);
   return res.text();
+}
+
+// ==============================
+// Helper: Send a message (or chunked messages) to a webhook
+// ==============================
+async function sendWebhookChunked(webhookUrl, content, roleMention = '') {
+  const MAX_LENGTH = 2000;
+  // Build the full message including the role mention
+  let fullMessage = content;
+  if (roleMention) {
+    fullMessage = roleMention + '\n' + content;
+  }
+  // If it's short enough, send once
+  if (fullMessage.length <= MAX_LENGTH) {
+    const res = await fetch(webhookUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ content: fullMessage })
+    });
+    return res;
+  }
+
+  // Split into chunks
+  const chunks = [];
+  // Remove role mention from content for splitting, we'll prepend it to first chunk only
+  let remaining = content;
+  while (remaining.length > 0) {
+    let chunk = remaining.slice(0, MAX_LENGTH - (roleMention ? roleMention.length + 1 : 0));
+    // Try to cut at a newline to avoid splitting in the middle of a line
+    const newlineIndex = chunk.lastIndexOf('\n');
+    if (newlineIndex > 0 && newlineIndex < chunk.length - 1) {
+      chunk = chunk.slice(0, newlineIndex + 1);
+    }
+    remaining = remaining.slice(chunk.length);
+    // If first chunk, prepend role mention
+    if (chunks.length === 0 && roleMention) {
+      chunk = roleMention + '\n' + chunk;
+    }
+    chunks.push(chunk);
+    // If remaining is too long, we'll continue
+  }
+
+  // Send each chunk
+  for (let i = 0; i < chunks.length; i++) {
+    const isLast = (i === chunks.length - 1);
+    const res = await fetch(webhookUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ content: chunks[i] })
+    });
+    if (!res.ok) {
+      // If we fail, abort and return the error response
+      return res;
+    }
+    // If there are more chunks, wait a tiny bit to avoid rate limiting
+    if (!isLast) {
+      await new Promise(r => setTimeout(r, 500));
+    }
+  }
+  // Return a dummy response indicating success
+  return { ok: true, status: 200 };
 }
 
 async function run() {
@@ -111,45 +172,42 @@ async function run() {
     // ==============================
 
     // --- RELEASES (only new games) ---
-    let releaseMsg = '';
+    let releaseContent = '';
     if (newGames.length > 0) {
-      releaseMsg += `${ROLE_RELEASES}\n`;
-      releaseMsg += '**🎮 New Release(s):**\n';
-      newGames.forEach(g => releaseMsg += `• **${g.title}** (ID: ${g.id})\n`);
-      releaseMsg += '\n📥 Download now on our website!';
+      releaseContent += '**🎮 New Release(s):**\n';
+      newGames.forEach(g => releaseContent += `• **${g.title}** (ID: ${g.id})\n`);
+      releaseContent += '\n📥 Download now on our website!';
     }
 
     // --- UPDATES (only game updates) ---
-    let updatesMsg = '';
+    let updatesContent = '';
     if (newUpdates.length > 0) {
-      updatesMsg += `${ROLE_UPDATES}\n`;
-      updatesMsg += '**🔄 New Game Update(s):**\n';
+      updatesContent += '**🔄 New Game Update(s):**\n';
       newUpdates.forEach(u => {
-        updatesMsg += `• **${u.gameTitle}** – \`${u.version}\` (${u.date})\n`;
-        if (u.description) updatesMsg += `  _${u.description.substring(0, 80)}${u.description.length > 80 ? '…' : ''}_\n`;
+        updatesContent += `• **${u.gameTitle}** – \`${u.version}\` (${u.date})\n`;
+        if (u.description) updatesContent += `  _${u.description.substring(0, 80)}${u.description.length > 80 ? '…' : ''}_\n`;
       });
-      updatesMsg += '\n🔄 Check the website for download links and patch notes!';
+      updatesContent += '\n🔄 Check the website for download links and patch notes!';
     }
 
     // --- STATUS (new or changed projects) ---
-    let statusMsg = '';
+    let statusContent = '';
     if (newStatus.length > 0 || changedStatus.length > 0) {
-      statusMsg += `${ROLE_STATUS}\n`;
-      statusMsg += '**📊 Status Update(s):**\n';
+      statusContent += '**📊 Status Update(s):**\n';
       
       if (newStatus.length > 0) {
-        statusMsg += '\n*New projects added:*\n';
-        newStatus.forEach(p => statusMsg += `• **${p.name}** – ${p.status.toUpperCase()} (ETA: ${p.eta})\n`);
+        statusContent += '\n*New projects added:*\n';
+        newStatus.forEach(p => statusContent += `• **${p.name}** – ${p.status.toUpperCase()} (ETA: ${p.eta})\n`);
       }
       
       if (changedStatus.length > 0) {
-        statusMsg += '\n*Status changes:*\n';
+        statusContent += '\n*Status changes:*\n';
         changedStatus.forEach(p => {
           const prev = previous.status.find(s => s.name === p.name);
-          statusMsg += `• **${p.name}** – ${prev.status} → ${p.status} | ETA: ${prev.eta} → ${p.eta}\n`;
+          statusContent += `• **${p.name}** – ${prev.status} → ${p.status} | ETA: ${prev.eta} → ${p.eta}\n`;
         });
       }
-      statusMsg += '\n📊 Check the Status page for more details!';
+      statusContent += '\n📊 Check the Status page for more details!';
     }
 
     // ==============================
@@ -169,45 +227,39 @@ async function run() {
     };
 
     // Send releases
-    if (releaseMsg && webhookReleases) {
+    if (releaseContent && webhookReleases) {
       console.log('📤 Sending releases webhook...');
-      const res = await fetch(webhookReleases, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ content: releaseMsg })
-      });
+      const res = await sendWebhookChunked(webhookReleases, releaseContent, ROLE_RELEASES);
       if (res.ok) {
         console.log('✅ Release webhook sent.');
       } else {
-        console.log(`⚠️ Release webhook responded with ${res.status}: ${await res.text()}`);
+        const errorText = await res.text();
+        console.log(`⚠️ Release webhook responded with ${res.status}: ${errorText}`);
       }
-    } else if (!releaseMsg) {
+    } else if (!releaseContent) {
       console.log('ℹ️ No new releases to send.');
     } else {
       console.log('⚠️ No WEBHOOK_RELEASES secret found.');
     }
 
     // Send updates
-    if (updatesMsg && webhookUpdates) {
+    if (updatesContent && webhookUpdates) {
       console.log('📤 Sending updates webhook...');
-      const res = await fetch(webhookUpdates, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ content: updatesMsg })
-      });
+      const res = await sendWebhookChunked(webhookUpdates, updatesContent, ROLE_UPDATES);
       if (res.ok) {
         console.log('✅ Update webhook sent.');
       } else {
-        console.log(`⚠️ Update webhook responded with ${res.status}: ${await res.text()}`);
+        const errorText = await res.text();
+        console.log(`⚠️ Update webhook responded with ${res.status}: ${errorText}`);
       }
-    } else if (!updatesMsg) {
+    } else if (!updatesContent) {
       console.log('ℹ️ No new updates to send.');
     } else {
       console.log('⚠️ No WEBHOOK_UPDATES secret found.');
     }
 
     // Send status (and delete previous message)
-    if ((statusMsg) && webhookStatus) {
+    if (statusContent && webhookStatus) {
       // Delete previous status message if we have an ID
       if (previous.lastStatusMessageId) {
         try {
@@ -224,34 +276,38 @@ async function run() {
         }
       }
 
-      // Send new status message
+      // Send new status message (with role ping)
       console.log('📤 Sending status webhook...');
-      const res = await fetch(webhookStatus, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ content: statusMsg })
-      });
+      const res = await sendWebhookChunked(webhookStatus, statusContent, ROLE_STATUS);
       if (res.ok) {
-        // Try to get the message ID from the response
+        // Try to get the message ID from the response (if it's a single message and response is JSON)
+        // We'll attempt to parse the response body
         try {
-          const result = await res.json();
-          if (result.id) {
-            newState.lastStatusMessageId = result.id;
-            console.log('✅ New status message sent and ID saved.');
+          // The response from sendWebhookChunked for the first chunk is a fetch response.
+          // For chunked sends, the last response might be the one that returned ok.
+          // We'll just try to get the ID from the first chunk's response if it's JSON.
+          // Since we may have multiple chunks, the ID is from the first message only.
+          // We'll store it if available.
+          if (res.headers && res.headers.get('content-type')?.includes('json')) {
+            const result = await res.json();
+            if (result.id) {
+              newState.lastStatusMessageId = result.id;
+              console.log('✅ New status message ID saved.');
+            }
           } else {
-            console.log('✅ Status webhook sent, but no ID found in response.');
+            // If we sent multiple chunks, we only have the last response.
+            // For simplicity, if we couldn't get the ID, we'll just not store it.
+            console.log('✅ Status webhook sent (no ID stored).');
           }
         } catch (parseErr) {
-          // If response is not JSON, just log success
-          console.log('✅ Status webhook sent (response not JSON, no ID stored).');
+          console.log('✅ Status webhook sent (could not parse response for ID).');
         }
       } else {
         const errorText = await res.text();
         console.log(`❌ Status webhook responded with ${res.status}: ${errorText}`);
       }
-    } else if (!statusMsg) {
+    } else if (!statusContent) {
       console.log('ℹ️ No status changes to send.');
-      // No new status, but we keep the old ID in state (don't delete it)
     } else {
       console.log('⚠️ No WEBHOOK_STATUS secret found.');
     }
