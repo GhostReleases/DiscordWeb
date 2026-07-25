@@ -10,7 +10,7 @@ const ROLE_UPDATES = '<@&1530516105846587483>';
 const ROLE_STATUS = '<@&1530529602265550988>';    
 
 // ==============================
-// 1. Load previous state
+// STATE LOADING
 // ==============================
 const stateFile = path.join(__dirname, '../../state.json');
 let previous = { games: [], updates: [], status: [], lastStatusMessageId: null };
@@ -26,7 +26,7 @@ if (fs.existsSync(stateFile)) {
 }
 
 // ==============================
-// 2. Fetch current data from live site
+// FETCH HELPERS
 // ==============================
 async function fetchFile(url) {
   const res = await fetch(url);
@@ -35,92 +35,87 @@ async function fetchFile(url) {
 }
 
 // ==============================
-// Helper: Send a single message to a webhook
+// WEBHOOK SENDER (with embed support)
 // ==============================
-async function sendWebhookMessage(webhookUrl, content) {
-  const MAX_LENGTH = 2000;
-  if (content.length <= MAX_LENGTH) {
-    const res = await fetch(webhookUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ content })
-    });
-    return res;
+async function sendWebhook(webhookUrl, content, embed = null) {
+  const payload = { content, embeds: embed ? [embed] : [] };
+  const res = await fetch(webhookUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  });
+  if (!res.ok) {
+    const text = await res.text();
+    return { success: false, error: text };
   }
-  // Split into chunks if too long
-  const chunks = [];
-  let remaining = content;
-  while (remaining.length > 0) {
-    let chunk = remaining.slice(0, MAX_LENGTH);
-    const newline = chunk.lastIndexOf('\n');
-    if (newline > 0 && newline < chunk.length - 1) {
-      chunk = chunk.slice(0, newline + 1);
-    }
-    remaining = remaining.slice(chunk.length);
-    chunks.push(chunk);
+  // Try to parse JSON (Discord returns the message data)
+  let data = {};
+  try {
+    data = await res.json();
+  } catch (e) {
+    // Some webhook responses aren't JSON (e.g., rate limits)
   }
-  for (let i = 0; i < chunks.length; i++) {
-    const res = await fetch(webhookUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ content: chunks[i] })
-    });
-    if (!res.ok) return res;
-    if (i < chunks.length - 1) await new Promise(r => setTimeout(r, 500));
-  }
-  return { ok: true };
+  return { success: true, data };
 }
 
 // ==============================
-// Helper: Build a detailed game message
+// BUILD EMBEDS
 // ==============================
-function buildGameMessage(game) {
-  let msg = `**${game.title}**\n`;
-  msg += `> ${game.description}\n\n`;
-  msg += `**Version:** ${game.VersionNumber || 'N/A'}\n`;
-  msg += `**Original Size:** ${game.sizeBefore || 'N/A'}\n`;
-  msg += `**Download Size:** ${game.sizeAfter || 'N/A'}\n`;
-  msg += `**Cracked By:** ${game.cracker || 'N/A'}\n`;
-  msg += `**Release Date:** ${game.releaseDate || 'N/A'}\n\n`;
-  if (game.downloadParts && game.downloadParts.length > 0) {
-    msg += `**Download Parts:**\n`;
-    game.downloadParts.forEach(part => {
-      let urls = '';
-      if (part.mirrors && part.mirrors.length > 0) {
-        urls = part.mirrors.map(m => `<${m.url}>`).join(' | ');
-      } else if (part.url) {
-        urls = `<${part.url}>`;
-      }
-      msg += `• ${part.name} (${part.size}) – ${urls}\n`;
-    });
+function buildGameEmbed(game) {
+  // Determine image URL: try Steam banner first, fallback to game.image
+  let imageUrl = null;
+  if (game.steamAppId) {
+    imageUrl = `https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/${game.steamAppId}/header.jpg`;
+  } else if (game.image) {
+    imageUrl = game.image;
   }
-  msg += `\n📥 **Download now on our website!**`;
-  return msg;
+
+  // Build fields
+  const fields = [];
+  if (game.VersionNumber) fields.push({ name: 'Version', value: game.VersionNumber, inline: true });
+  if (game.cracker) fields.push({ name: 'Cracked By', value: game.cracker, inline: true });
+  if (game.sizeBefore) fields.push({ name: 'Original Size', value: game.sizeBefore, inline: true });
+  if (game.sizeAfter) fields.push({ name: 'Download Size', value: game.sizeAfter, inline: true });
+  if (game.releaseDate) fields.push({ name: 'Release Date', value: game.releaseDate, inline: false });
+
+  return {
+    title: game.title,
+    description: game.description ? game.description.slice(0, 4000) : 'No description available.',
+    color: 0xb367d6, // Purple
+    url: 'https://ghostreleases.com',
+    fields: fields,
+    image: imageUrl ? { url: imageUrl } : undefined,
+    footer: { text: 'Ghost Releases' }
+  };
 }
 
-// ==============================
-// Helper: Build a detailed update message
-// ==============================
-function buildUpdateMessage(update, gameTitle) {
-  let msg = `**${gameTitle} – ${update.version}**\n`;
-  msg += `> ${update.description || 'No description provided.'}\n\n`;
-  msg += `📅 Date: ${update.date}\n`;
+function buildUpdateEmbed(update, gameTitle) {
+  const fields = [];
+  if (update.date) fields.push({ name: 'Date', value: update.date, inline: true });
   if (update.mirrors && update.mirrors.length > 0) {
-    msg += `**Download Links:**\n`;
-    update.mirrors.forEach(m => {
-      msg += `• ${m.host}: <${m.url}>\n`;
-    });
+    const links = update.mirrors.map(m => `[${m.host}](${m.url})`).join(' | ');
+    fields.push({ name: 'Download Links', value: links, inline: false });
   } else if (update.downloadUrl) {
-    msg += `**Download Link:** <${update.downloadUrl}>\n`;
+    fields.push({ name: 'Download Link', value: `[Download](${update.downloadUrl})`, inline: false });
   }
   if (update.steps && update.steps.length > 0) {
-    msg += `\n**Installation Steps:**\n`;
-    update.steps.forEach(step => msg += `• ${step}\n`);
+    const steps = update.steps.map((s, i) => `${i+1}. ${s}`).join('\n');
+    fields.push({ name: 'Installation Steps', value: steps.slice(0, 1024), inline: false });
   }
-  msg += `\n🔄 Check the website for more details.`;
-  return msg;
+
+  return {
+    title: `${gameTitle} – ${update.version}`,
+    description: update.description ? update.description.slice(0, 4000) : 'No patch notes provided.',
+    color: 0xf0a030, // Orange/gold for updates
+    url: 'https://ghostreleases.com',
+    fields: fields,
+    footer: { text: 'Ghost Releases' }
+  };
 }
 
+// ==============================
+// MAIN
+// ==============================
 async function run() {
   try {
     console.log('📡 Fetching script.js...');
@@ -141,10 +136,8 @@ async function run() {
     console.log(`✅ Parsed repackProjects: ${repackProjects.length} projects`);
 
     // ==============================
-    // Detect changes
+    // DETECT CHANGES
     // ==============================
-
-    // New games (full objects)
     const newGames = gamesData.filter(g => !previous.games.some(p => p.id === g.id));
     console.log(`🔍 New games: ${newGames.length}`);
 
@@ -171,87 +164,92 @@ async function run() {
     console.log(`🔍 New status: ${newStatus.length}, Status changes: ${changedStatus.length}`);
 
     // ==============================
-    // Send messages
+    // SEND WEBHOOKS
     // ==============================
-
     const webhookReleases = process.env.WEBHOOK_RELEASES;
     const webhookUpdates = process.env.WEBHOOK_UPDATES;
     const webhookStatus = process.env.WEBHOOK_STATUS;
 
-    // --- New Releases (one message per game) ---
+    let newState = {
+      games: gamesData.map(g => ({ id: g.id, title: g.title })),
+      updates: gamesData.flatMap(g => (g.updates || []).map(u => ({ gameId: g.id, version: u.version, date: u.date }))),
+      status: currentStatus,
+      lastStatusMessageId: previous.lastStatusMessageId
+    };
+
+    // --- RELEASES (one embed per game) ---
     if (newGames.length > 0 && webhookReleases) {
-      // Send the role mention first (once)
-      await sendWebhookMessage(webhookReleases, ROLE_RELEASES + '\n**🎮 New Release(s):**');
+      // Send role ping + intro text
+      await sendWebhook(webhookReleases, `${ROLE_RELEASES} **🎮 New Release(s):**`);
       for (const game of newGames) {
-        const msg = buildGameMessage(game);
-        await sendWebhookMessage(webhookReleases, msg);
-        await new Promise(r => setTimeout(r, 500)); // avoid rate limits
+        const embed = buildGameEmbed(game);
+        await sendWebhook(webhookReleases, null, embed);
+        await new Promise(r => setTimeout(r, 500));
       }
-      console.log(`✅ Sent ${newGames.length} release messages.`);
+      console.log(`✅ Sent ${newGames.length} release embeds.`);
     } else if (newGames.length > 0) {
-      console.log('⚠️ No WEBHOOK_RELEASES secret found.');
+      console.log('⚠️ No WEBHOOK_RELEASES secret.');
     } else {
       console.log('ℹ️ No new releases.');
     }
 
-    // --- New Updates (one message per update) ---
+    // --- UPDATES (one embed per update) ---
     if (newUpdates.length > 0 && webhookUpdates) {
-      await sendWebhookMessage(webhookUpdates, ROLE_UPDATES + '\n**🔄 New Update(s):**');
+      await sendWebhook(webhookUpdates, `${ROLE_UPDATES} **🔄 New Update(s):**`);
       for (const update of newUpdates) {
-        const msg = buildUpdateMessage(update, update.gameTitle);
-        await sendWebhookMessage(webhookUpdates, msg);
+        const embed = buildUpdateEmbed(update, update.gameTitle);
+        await sendWebhook(webhookUpdates, null, embed);
         await new Promise(r => setTimeout(r, 500));
       }
-      console.log(`✅ Sent ${newUpdates.length} update messages.`);
+      console.log(`✅ Sent ${newUpdates.length} update embeds.`);
     } else if (newUpdates.length > 0) {
-      console.log('⚠️ No WEBHOOK_UPDATES secret found.');
+      console.log('⚠️ No WEBHOOK_UPDATES secret.');
     } else {
       console.log('ℹ️ No new updates.');
     }
 
-    // --- Status (delete old, send new) ---
+    // --- STATUS (delete old, send new) ---
     if ((newStatus.length > 0 || changedStatus.length > 0) && webhookStatus) {
-      // Delete previous status message
+      // Delete previous message
       if (previous.lastStatusMessageId) {
         try {
           const delRes = await fetch(`${webhookStatus}/messages/${previous.lastStatusMessageId}`, { method: 'DELETE' });
           if (delRes.ok) console.log('🗑️ Deleted old status message');
-        } catch (e) { /* ignore */ }
+          else console.log(`⚠️ Could not delete old status: ${delRes.status}`);
+        } catch (e) {
+          console.log('⚠️ Error deleting old status:', e.message);
+        }
       }
+
       // Build status message
-      let statusMsg = `${ROLE_STATUS}\n**📊 Status Update(s):**\n`;
+      let statusText = `${ROLE_STATUS} **📊 Status Update(s):**\n`;
       if (newStatus.length > 0) {
-        statusMsg += '\n*New projects added:*\n';
-        newStatus.forEach(p => statusMsg += `• **${p.name}** – ${p.status.toUpperCase()} (ETA: ${p.eta})\n`);
+        statusText += '\n*New projects added:*\n';
+        newStatus.forEach(p => statusText += `• **${p.name}** – ${p.status.toUpperCase()} (ETA: ${p.eta})\n`);
       }
       if (changedStatus.length > 0) {
-        statusMsg += '\n*Status changes:*\n';
+        statusText += '\n*Status changes:*\n';
         changedStatus.forEach(p => {
           const prev = previous.status.find(s => s.name === p.name);
-          statusMsg += `• **${p.name}** – ${prev.status} → ${p.status} | ETA: ${prev.eta} → ${p.eta}\n`;
+          statusText += `• **${p.name}** – ${prev.status} → ${p.status} | ETA: ${prev.eta} → ${p.eta}\n`;
         });
       }
-      statusMsg += '\n📊 Check the Status page for more details!';
-      // Send new status
-      const res = await sendWebhookMessage(webhookStatus, statusMsg);
-      if (res.ok && res.headers && res.headers.get('content-type')?.includes('json')) {
-        const json = await res.json();
-        previous.lastStatusMessageId = json.id; // will be saved in new state
+      statusText += '\n📊 Check the Status page for more details!';
+
+      const result = await sendWebhook(webhookStatus, statusText);
+      if (result.success && result.data.id) {
+        newState.lastStatusMessageId = result.data.id;
+        console.log('✅ New status sent and ID saved.');
+      } else {
+        console.log('⚠️ Status sent but ID not stored:', result.error || 'unknown');
       }
-      console.log('✅ Status updated.');
     } else {
       console.log('ℹ️ No status changes.');
     }
 
     // ==============================
-    // Save new state
+    // SAVE STATE
     // ==============================
-    const newState = {
-      games: gamesData.map(g => ({ id: g.id, title: g.title })),
-      updates: gamesData.flatMap(g => (g.updates || []).map(u => ({ gameId: g.id, version: u.version, date: u.date }))),
-      status: currentStatus,
-      lastStatusMessageId: previous.lastStatusMessageId || null
-    };
     fs.writeFileSync(stateFile, JSON.stringify(newState, null, 2));
     console.log('💾 State saved.');
 
