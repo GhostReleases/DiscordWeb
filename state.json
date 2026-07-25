@@ -1,0 +1,396 @@
+{
+  "games": [
+    {
+      "id": 1,
+      "title": "Forza Horizon 6",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"1.37 GB\",\"urls\":[\"https://vikingfile.com/f/VQtyLt10E4#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"1.98 GB\",\"urls\":[\"https://vikingfile.com/f/RfdUgulRL8#Part2.zip\"]},{\"name\":\"Part 3\",\"size\":\"1.96 GB\",\"urls\":[\"https://vikingfile.com/f/y8cMLge4vk#Part3.zip\"]},{\"name\":\"Part 4\",\"size\":\"1.90 GB\",\"urls\":[\"https://vikingfile.com/f/kd6jhVm8Kn#Part4.zip\"]},{\"name\":\"Part 5\",\"size\":\"1.94 GB\",\"urls\":[\"https://vikingfile.com/f/BLvrwOEb4I#Part5.zip\"]},{\"name\":\"Part 6\",\"size\":\"1.99 GB\",\"urls\":[\"https://vikingfile.com/f/Q8xsdcxAdG#Part6.zip\"]},{\"name\":\"Part 7\",\"size\":\"1.93 GB\",\"urls\":[\"https://vikingfile.com/f/Bi7SalfdNC#Part7.zip\"]},{\"name\":\"Part 8\",\"size\":\"1.95 GB\",\"urls\":[\"https://vikingfile.com/f/PzJ5wpdhrr#Part8.zip\"]},{\"name\":\"Part 9\",\"size\":\"1.89 GB\",\"urls\":[\"https://vikingfile.com/f/ldTh5flDij#Part9.zip\"]},{\"name\":\"Part 10\",\"size\":\"1.76 GB\",\"urls\":[\"https://vikingfile.com/f/IqSrzUWr0m#Part10.zip\"]},{\"name\":\"Part 11\",\"size\":\"1.94 GB\",\"urls\":[\"https://vikingfile.com/f/lUAcfmrOr2#Part11.zip\"]},{\"name\":\"Part 12\",\"size\":\"1.91 GB\",\"urls\":[\"https://vikingfile.com/f/PxZ9gXgB3o#Part12.zip\"]},{\"name\":\"Part 13\",\"size\":\"1.93 GB\",\"urls\":[\"https://vikingfile.com/f/S2x2xd0wq1#Part13.zip\"]},{\"name\":\"Part 14\",\"size\":\"1.92 GB\",\"urls\":[\"https://vikingfile.com/f/dzSxlX5Ozs#Part14.zip\"]},{\"name\":\"Part 15\",\"size\":\"1.93 GB\",\"urls\":[\"https://vikingfile.com/f/xUzu37BRNE#Part15.zip\"]},{\"name\":\"Part 16\",\"size\":\"1.91 GB\",\"urls\":[\"https://vikingfile.com/f/9R3BR0BLK9#Part16.zip\"]},{\"name\":\"Part 17\",\"size\":\"1.90 GB\",\"urls\":[\"https://vikingfile.com/f/x5tDY8Xbwy#Part17.zip\"]},{\"name\":\"Part 18\",\"size\":\"1.91 GB\",\"urls\":[\"https://vikingfile.com/f/VkjP9F04IH#Part18.zip\"]},{\"name\":\"Part 19\",\"size\":\"1.84 GB\",\"urls\":[\"https://vikingfile.com/f/zGxv2OCvAy#Part19.zip\"]},{\"name\":\"Part 20\",\"size\":\"1.67 GB\",\"urls\":[\"https://vikingfile.com/f/E9eMI1pXLT#Part20.zip\"]},{\"name\":\"Part 21\",\"size\":\"845 MB\",\"urls\":[\"https://vikingfile.com/f/lobjo1i3ut#Part21.zip\"]},{\"name\":\"Part 22\",\"size\":\"2.03 GB\",\"urls\":[\"https://vikingfile.com/f/wvjpYvsyDB#Part22.zip\"]},{\"name\":\"Part 23\",\"size\":\"1.48 GB\",\"urls\":[\"https://vikingfile.com/f/3YOgPrvsgi#Part23.zip\"]},{\"name\":\"Part 24\",\"size\":\"1.96 GB\",\"urls\":[\"https://vikingfile.com/f/8RQFBSz2wh#Part24.zip\"]},{\"name\":\"Part 25\",\"size\":\"1.95 GB\",\"urls\":[\"https://vikingfile.com/f/Pr5B4bOVzl#Part25.zip\"]},{\"name\":\"Part 26\",\"size\":\"1.31 GB\",\"urls\":[\"https://vikingfile.com/f/L5zjXfZQTQ#Part26.zip\"]},{\"name\":\"Part 27\",\"size\":\"1.87 GB\",\"urls\":[\"https://vikingfile.com/f/9tslRyCO38#Part27.zip\"]},{\"name\":\"Part 28\",\"size\":\"805 MB\",\"urls\":[\"https://vikingfile.com/f/HULOqjg9qb#Part28.zip\"]},{\"name\":\"Part 29\",\"size\":\"5.78 GB\",\"urls\":[\"https://vikingfile.com/f/ZcSKUYgoeJ#Part29.zip\"]},{\"name\":\"Part 30\",\"size\":\"1.01 GB\",\"urls\":[\"https://vikingfile.com/f/3TCIpE2S1o#Part30.zip\"]},{\"name\":\"Part 31\",\"size\":\"32.5 GB(Uncompressable)\",\"urls\":[\"https://vikingfile.com/f/Wh8NCPryyz#Part31.zip\"]},{\"name\":\"Part 32\",\"size\":\"2.97 GB\",\"urls\":[\"https://vikingfile.com/f/PwTNA9NEDu#Part32.zip\"]},{\"name\":\"Part 33\",\"size\":\"41.2 GB(Uncompressable)\",\"urls\":[\"https://vikingfile.com/f/Xwd2CvDL4c#Part33.zip\"]},{\"name\":\"Part 34\",\"size\":\"3.85 GB\",\"urls\":[\"https://vikingfile.com/f/KI1mG3xXoi#Part34.zip\"]},{\"name\":\"Part 35\",\"size\":\"1.80 GB\",\"urls\":[\"https://vikingfile.com/f/gBvdo5yTxA#Part35.zip\"]},{\"name\":\"Part 36\",\"size\":\"1.88 GB\",\"urls\":[\"https://vikingfile.com/f/GXr3n6DOze#Part36.zip\"]},{\"name\":\"Part 37\",\"size\":\"1.97 GB\",\"urls\":[\"https://vikingfile.com/f/Z80ZMqBSoI#Part37.zip\"]},{\"name\":\"Part 38\",\"size\":\"1.08 GB\",\"urls\":[\"https://vikingfile.com/f/2uUYXeT51j#Part38.zip\"]}]"
+    },
+    {
+      "id": 2,
+      "title": "Subnautica 2",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"1.14 GB\",\"urls\":[\"https://buzzheavier.com/cm56jyawjs0s\",\"https://vikingfile.com/f/WmoM5xbSlb#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"11.30 GB\",\"urls\":[\"https://buzzheavier.com/r3p04gc1hz73\",\"https://vikingfile.com/f/2cO8Bp9nIE#Part2.7z\"]},{\"name\":\"Part 3\",\"size\":\"3.68 MB\",\"urls\":[\"https://buzzheavier.com/vwkzg8ruzoeu\",\"https://vikingfile.com/f/yMEVkEhbyN#Part3.7z\"]}]"
+    },
+    {
+      "id": 3,
+      "title": "Black Myth: Wukong",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"337 MB\",\"urls\":[\"https://vikingfile.com/f/LtsPtkoSz7#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"14.71 GB (Uncompressable)\",\"urls\":[\"https://vikingfile.com/f/hOvKXaHeZ6#Part2.zip\"]},{\"name\":\"Part 3\",\"size\":\"990 KB\",\"urls\":[\"https://vikingfile.com/f/fZEkl9lp6l#Part3.zip\"]},{\"name\":\"Part 4\",\"size\":\"10.39 GB (Uncompressable)\",\"urls\":[\"https://vikingfile.com/f/9KhguVX8c4#Part4.zip\"]},{\"name\":\"Part 5\",\"size\":\"667 KB\",\"urls\":[\"https://vikingfile.com/f/SAGLTsTjbT#Part5.zip\"]},{\"name\":\"Part 6\",\"size\":\"3.92 GB\",\"urls\":[\"https://vikingfile.com/f/gYFP9aD5Z7#Part6.zip\"]},{\"name\":\"Part 7\",\"size\":\"1.43 GB\",\"urls\":[\"https://vikingfile.com/f/Fw3nkMQsxi#Part7.zip\"]},{\"name\":\"Part 8\",\"size\":\"635 MB\",\"urls\":[\"https://vikingfile.com/f/zWu3DdWAw4#Part8.zip\"]},{\"name\":\"Part 9\",\"size\":\"34.85 GB (Uncompressable)\",\"urls\":[\"https://vikingfile.com/f/GXbwPzneJh#Part9.zip\"]},{\"name\":\"Part 10\",\"size\":\"2.20 MB\",\"urls\":[\"https://vikingfile.com/f/7COwX2naSf#Part10.zip\"]},{\"name\":\"Part 11\",\"size\":\"24.90 GB (Uncompressable)\",\"urls\":[\"https://vikingfile.com/f/hTKqKhBUo6#Part11.zip\"]},{\"name\":\"Part 12\",\"size\":\"1.58 MB\",\"urls\":[\"https://vikingfile.com/f/UkUILLab1K#Part12.zip\"]},{\"name\":\"Part 13\",\"size\":\"19.32 GB (Uncompressable)\",\"urls\":[\"https://vikingfile.com/f/A97LT6hNjC#Part13.zip\"]},{\"name\":\"Part 14\",\"size\":\"1.04 GB\",\"urls\":[\"https://vikingfile.com/f/vcqoRVjUFP#Part14.zip\"]},{\"name\":\"Part 15\",\"size\":\"8.46 GB\",\"urls\":[\"https://vikingfile.com/f/GqQqE856TO#Part15.zip\"]},{\"name\":\"Part 16\",\"size\":\"1.33 GB\",\"urls\":[\"https://vikingfile.com/f/EpG9DAdW2P#Part16.zip\"]},{\"name\":\"Part 17\",\"size\":\"1.11 GB\",\"urls\":[\"https://vikingfile.com/f/kFvHJ5l6GZ#Part17.zip\"]},{\"name\":\"Part 18\",\"size\":\"2.37 GB\",\"urls\":[\"https://vikingfile.com/f/9oFO5RuvUO#Part18.zip\"]},{\"name\":\"Part 19\",\"size\":\"154 KB\",\"urls\":[\"https://vikingfile.com/f/I34sOq7FYO#Part19.zip\"]},{\"name\":\"Part 20\",\"size\":\"2.01 GB\",\"urls\":[\"https://vikingfile.com/f/pOMlycNFvY#Part20.zip\"]},{\"name\":\"Part 21\",\"size\":\"833 MB\",\"urls\":[\"https://vikingfile.com/f/V6VXySquJi#Part21.zip\"]},{\"name\":\"Part 22\",\"size\":\"8.35 GB\",\"urls\":[\"https://vikingfile.com/f/xW0Fm60G4Y#Part22.zip\"]},{\"name\":\"Part 23\",\"size\":\"1.45 GB\",\"urls\":[\"https://vikingfile.com/f/Kpm1RsnqA1#Part23.zip\"]}]"
+    },
+    {
+      "id": 4,
+      "title": "PRAGMATA",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"808 MB\",\"urls\":[\"https://vikingfile.com/f/vqb44K7hbR#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"18.34 GB (Uncompressable)\",\"urls\":[\"https://vikingfile.com/f/otpAglrDWH#Part2.zip\"]},{\"name\":\"Part 3\",\"size\":\"14.91 GB (Uncompressable)\",\"urls\":[\"https://vikingfile.com/f/cmbX9pvYw6#Part3.zip\"]},{\"name\":\"Part 4\",\"size\":\"39.87 MB\",\"urls\":[\"https://vikingfile.com/f/AXxYSRAES5#Part4.zip\"]}]"
+    },
+    {
+      "id": 5,
+      "title": "Stellar Blade™",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"1.39 GB\",\"urls\":[\"https://vikingfile.com/f/kvSAXkfnNA#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"1.94 GB\",\"urls\":[\"https://vikingfile.com/f/Q0DfwT76zF#Part2.zip\"]},{\"name\":\"Part 3\",\"size\":\"1.24 GB\",\"urls\":[\"https://vikingfile.com/f/Og74FwhIcm#Part3.zip\"]},{\"name\":\"Part 4\",\"size\":\"1.25 GB\",\"urls\":[\"https://vikingfile.com/f/FNL9Ahscr8#Part4.zip\"]},{\"name\":\"Part 5\",\"size\":\"51.93 GB (Uncompressable)\",\"urls\":[\"https://vikingfile.com/f/Z6RTKZ5ikf#Part5.zip\"]},{\"name\":\"Part 6\",\"size\":\"1.42 GB\",\"urls\":[\"https://vikingfile.com/f/fJJ4jSsUVi#Part6.zip\"]}]"
+    },
+    {
+      "id": 6,
+      "title": "Forza Horizon 5",
+      "downloadHash": "[{\"name\":\"Parts 1-73 Folder\",\"size\":\"166 GB(Sizes are displayed in the folder)\",\"urls\":[\"https://vikingfile.com/folder/ez-AKtKw2a-BWDJbb_qBJW6Wsjk6jSaYshTyzToYHEw\"]}]"
+    },
+    {
+      "id": 7,
+      "title": "Resident Evil: Requiem",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"1.31 GB\",\"urls\":[\"https://vikingfile.com/f/ZRP5VrKMIU#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"18.72 GB(Uncompressable)\",\"urls\":[\"https://vikingfile.com/f/8kU51MJqgF#Part2.zip\"]},{\"name\":\"Part 3\",\"size\":\"1.34 GB\",\"urls\":[\"https://vikingfile.com/f/4re35GuSkT#Part3.zip\"]},{\"name\":\"Part 4\",\"size\":\"53.42 GB(Uncompressable)\",\"urls\":[\"https://vikingfile.com/f/oFOa92uBko#Part4.zip\"]},{\"name\":\"Part 5\",\"size\":\"289.73 MB\",\"urls\":[\"https://vikingfile.com/f/TqlIlRR4hc#Part5.zip\"]}]"
+    },
+    {
+      "id": 8,
+      "title": "Grand Theft Auto V Enhanced",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"9.30 GB\",\"urls\":[\"https://vikingfile.com/f/uTYfknnyUg#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"9.26 GB\",\"urls\":[\"https://vikingfile.com/f/d7Kna9U3Zg#Part2.zip\"]},{\"name\":\"Part 3\",\"size\":\"9.37 GB\",\"urls\":[\"https://vikingfile.com/f/c8IrLDxNA5#Part3.zip\"]},{\"name\":\"Part 4\",\"size\":\"9.78 GB\",\"urls\":[\"https://vikingfile.com/f/57rR5ovYkF#Part4.zip\"]},{\"name\":\"Part 5\",\"size\":\"9.24 GB\",\"urls\":[\"https://vikingfile.com/f/CPJh2ji6TF#Part5.zip\"]},{\"name\":\"Part 6\",\"size\":\"9.88 GB\",\"urls\":[\"https://vikingfile.com/f/ixafX0y8YF#Part6.zip\"]},{\"name\":\"Part 7\",\"size\":\"8.94 GB\",\"urls\":[\"https://vikingfile.com/f/rxSHsB0QNE#Part7.zip\"]},{\"name\":\"Part 8\",\"size\":\"8.73 GB\",\"urls\":[\"https://vikingfile.com/f/S7Ds3RgtiK#Part8.zip\"]},{\"name\":\"Part 9\",\"size\":\"8.95 GB\",\"urls\":[\"https://vikingfile.com/f/d2vpmAlrfO#Part9.zip\"]},{\"name\":\"Part 10\",\"size\":\"9.50 GB\",\"urls\":[\"https://vikingfile.com/f/Z5HG3y4lc9#Part10.zip\"]},{\"name\":\"Part 11\",\"size\":\"816.41 MB\",\"urls\":[\"https://vikingfile.com/f/SRqFhWZEoL#Part11.zip\"]}]"
+    },
+    {
+      "id": 9,
+      "title": "The Other Side",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"535 MB\",\"urls\":[\"https://vikingfile.com/f/BRhkffq7jL#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"21.3 GB(Uncompressable)\",\"urls\":[\"https://vikingfile.com/f/IlTcTvB3mC#Part2.zip\"]},{\"name\":\"Part 3\",\"size\":\"47.6 MB\",\"urls\":[\"https://vikingfile.com/f/fh8x6F2Zin#Part3.zip\"]}]"
+    },
+    {
+      "id": 10,
+      "title": "Invincible VS",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"3.94 GB\",\"urls\":[\"https://vikingfile.com/f/nbDhog2lh9#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"4.96 GB\",\"urls\":[\"https://vikingfile.com/f/l3kejU3qKr#Part2.zip\"]},{\"name\":\"Part 3\",\"size\":\"12.12 MB\",\"urls\":[\"https://vikingfile.com/f/flMiW5hvgh#Part3.zip\"]}]"
+    },
+    {
+      "id": 11,
+      "title": "Mafia: The Old Country",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"2.26 GB\",\"urls\":[\"https://vikingfile.com/f/2QFi6r0Sfg#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"2.81 GB\",\"urls\":[\"https://vikingfile.com/f/o1W7BFBeFM#Part2.zip\"]},{\"name\":\"Part 3\",\"size\":\"2.18 GB\",\"urls\":[\"https://vikingfile.com/f/bzLohBuKie#Part3.zip\"]},{\"name\":\"Part 4\",\"size\":\"6.46 GB\",\"urls\":[\"https://vikingfile.com/f/l7X0rWYGnS#Part4.zip\"]},{\"name\":\"Part 5\",\"size\":\"4.00 GB\",\"urls\":[\"https://vikingfile.com/f/9c11Dmgo9r#Part5.zip\"]},{\"name\":\"Part 6\",\"size\":\"16.16 GB(Uncompressable)\",\"urls\":[\"https://vikingfile.com/f/p4iRkZ3KlE#Part6.zip\"]},{\"name\":\"Part 7\",\"size\":\"1.65 GB\",\"urls\":[\"https://vikingfile.com/f/iXaH4kxgfO#Part7.zip\"]},{\"name\":\"Part 8\",\"size\":\"3.81 GB\",\"urls\":[\"https://vikingfile.com/f/p4r8ZoMNxw#Part8.zip\"]}]"
+    },
+    {
+      "id": 12,
+      "title": "LEGO® Batman™: Legacy of the Dark Knight",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"1.30 GB\",\"urls\":[\"https://vikingfile.com/f/J4CatSZLyn#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"8.50 GB\",\"urls\":[\"https://vikingfile.com/f/DzzYPGm4vv#Part2.zip\"]},{\"name\":\"Part 3\",\"size\":\"12.05 GB(Uncompressable)\",\"urls\":[\"https://vikingfile.com/f/Yae4UEx0kG#Part3.zip\"]},{\"name\":\"Part 4\",\"size\":\"584.88 MB\",\"urls\":[\"https://vikingfile.com/f/mM1oTSIfVi#Part4.zip\"]},{\"name\":\"Part 5\",\"size\":\"15.54 GB(Uncompressable)\",\"urls\":[\"https://vikingfile.com/f/KnUKNU5dgd#Part5.zip\"]},{\"name\":\"Part 6\",\"size\":\"13.00 MB\",\"urls\":[\"https://vikingfile.com/f/apVb64IT2E#Part6.zip\"]}]"
+    },
+    {
+      "id": 13,
+      "title": "NARUTO SHIPPUDEN: Ultimate Ninja STORM 4",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"2.83 MB\",\"urls\":[\"https://vikingfile.com/f/aK4XLm73uo#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"9.83 GB\",\"urls\":[\"https://vikingfile.com/f/3IjvowlUjn#Part2.zip\"]},{\"name\":\"Part 3\",\"size\":\"13.85 GB(Uncompressable)\",\"urls\":[\"https://vikingfile.com/f/UV70qWO4qX#Part3.zip\"]},{\"name\":\"Part 4\",\"size\":\"4.63 GB\",\"urls\":[\"https://vikingfile.com/f/NVBUdznT10#Part4.zip\"]},{\"name\":\"Part 5\",\"size\":\"3.95 GB\",\"urls\":[\"https://vikingfile.com/f/WRPPT9ge53#Part5.zip\"]},{\"name\":\"Part 6\",\"size\":\"4.06 GB\",\"urls\":[\"https://vikingfile.com/f/PUAGd4f3og#Part6.zip\"]}]"
+    },
+    {
+      "id": 14,
+      "title": "Elder Scrolls IV: Oblivion Remastered - Deluxe Edition",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"3.26 GB\",\"urls\":[\"https://vikingfile.com/f/8BkW3oo8m3#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"4.05 GB\",\"urls\":[\"https://vikingfile.com/f/41DdnWumkn#Part2.zip\"]},{\"name\":\"Part 3\",\"size\":\"4.20 GB\",\"urls\":[\"https://vikingfile.com/f/3Yq4SMGS28#Part3.zip\"]},{\"name\":\"Part 4\",\"size\":\"4.25 GB\",\"urls\":[\"https://vikingfile.com/f/TxCu9cVdwC#Part4.zip\"]},{\"name\":\"Part 5\",\"size\":\"106.16 GB(Uncompressable)\",\"urls\":[\"https://vikingfile.com/f/v4i4kTBQS7#Part5.zip\"]},{\"name\":\"Part 6\",\"size\":\"48.35 MB\",\"urls\":[\"https://vikingfile.com/f/y9FYMbH5Wu#Part6.zip\"]}]"
+    },
+    {
+      "id": 15,
+      "title": "Alan Wake 2: Deluxe Edition",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"4.90 GB\",\"urls\":[\"https://vikingfile.com/f/JsA3bmVRF2#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"4.59 GB\",\"urls\":[\"https://vikingfile.com/f/5iC7sdGgaL#Part2.zip\"]},{\"name\":\"Part 3\",\"size\":\"5.10 GB\",\"urls\":[\"https://vikingfile.com/f/ApFM5Gz9QQ#Part3.zip\"]},{\"name\":\"Part 4\",\"size\":\"5.07 GB\",\"urls\":[\"https://vikingfile.com/f/lbm4Smws6x#Part4.zip\"]},{\"name\":\"Part 5\",\"size\":\"7.56 GB\",\"urls\":[\"https://vikingfile.com/f/LuHP3DCAZq#Part5.zip\"]},{\"name\":\"Part 6\",\"size\":\"7.59 GB\",\"urls\":[\"https://vikingfile.com/f/CbylCHiDkc#Part6.zip\"]},{\"name\":\"Part 7\",\"size\":\"7.52 GB\",\"urls\":[\"https://vikingfile.com/f/6Z8rIit833#Part7.zip\"]},{\"name\":\"Part 8\",\"size\":\"4.44 GB\",\"urls\":[\"https://vikingfile.com/f/MF1pfqhlf6#Part8.zip\"]},{\"name\":\"Part 9\",\"size\":\"4.94 GB\",\"urls\":[\"https://vikingfile.com/f/tybBWIHiaw#Part9.zip\"]},{\"name\":\"Part 10\",\"size\":\"4.98 GB\",\"urls\":[\"https://vikingfile.com/f/a4zGu8nIIJ#Part10.zip\"]},{\"name\":\"Part 11\",\"size\":\"7.75 GB\",\"urls\":[\"https://vikingfile.com/f/qd9DWiaK6v#Part11.zip\"]},{\"name\":\"Part 12\",\"size\":\"8.01 GB\",\"urls\":[\"https://vikingfile.com/f/eeAdNA0iGh#Part12.zip\"]},{\"name\":\"Part 13\",\"size\":\"4.47 GB\",\"urls\":[\"https://vikingfile.com/f/t1C2rIUMCM#Part13.zip\"]},{\"name\":\"Part 14\",\"size\":\"5.26 GB\",\"urls\":[\"https://vikingfile.com/f/8HSnkmw5Ib#Part14.zip\"]},{\"name\":\"Part 15\",\"size\":\"5.56 GB\",\"urls\":[\"https://vikingfile.com/f/R4qeUQ6a8n#Part15.zip\"]},{\"name\":\"Part 16\",\"size\":\"7.70 GB\",\"urls\":[\"https://vikingfile.com/f/2NFD1MTZ0t#Part16.zip\"]}]"
+    },
+    {
+      "id": 16,
+      "title": "God Of War",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"7.17 GB\",\"urls\":[\"https://vikingfile.com/f/Rrbomb1CC2#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"6.42 GB\",\"urls\":[\"https://vikingfile.com/f/HvTDIjejqn#Part2.zip\"]},{\"name\":\"Part 3\",\"size\":\"5.35 GB\",\"urls\":[\"https://vikingfile.com/f/qx1cmHT2ey#Part3.zip\"]},{\"name\":\"Part 4\",\"size\":\"5.91 GB\",\"urls\":[\"https://vikingfile.com/f/wngRQv7C5a#Part4.zip\"]},{\"name\":\"Part 5\",\"size\":\"4.24 GB\",\"urls\":[\"https://vikingfile.com/f/20FJc3n4Qp#Part5.zip\"]},{\"name\":\"Part 6\",\"size\":\"5.74 GB\",\"urls\":[\"https://vikingfile.com/f/HPBigUkg2I#Part6.zip\"]},{\"name\":\"Part 7\",\"size\":\"1.46 GB\",\"urls\":[\"https://vikingfile.com/f/8hXF7EFTLM#Part7.zip\"]}]"
+    },
+    {
+      "id": 17,
+      "title": "Spider-Man 2",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"8.50 GB\",\"urls\":[\"https://vikingfile.com/f/GI0yuHBerb#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"7.44 GB\",\"urls\":[\"https://vikingfile.com/f/Oig0YCVI2b#Part2.zip\"]},{\"name\":\"Part 3\",\"size\":\"8.22 GB\",\"urls\":[\"https://vikingfile.com/f/U8k7XTPSBB#Part3.zip\"]},{\"name\":\"Part 4\",\"size\":\"9.48 GB\",\"urls\":[\"https://vikingfile.com/f/Qd0DwtgepT#Part4.zip\"]},{\"name\":\"Part 5\",\"size\":\"8.25 GB\",\"urls\":[\"https://vikingfile.com/f/EoXdZz5h34#Part5.zip\"]},{\"name\":\"Part 6\",\"size\":\"9.62 GB\",\"urls\":[\"https://vikingfile.com/f/soruuzGqkC#Part6.zip\"]},{\"name\":\"Part 7\",\"size\":\"6.98 GB\",\"urls\":[\"https://vikingfile.com/f/XxLCO3BZm6#Part7.zip\"]},{\"name\":\"Part 8\",\"size\":\"8.95 GB\",\"urls\":[\"https://vikingfile.com/f/0Y9KQMWcp8#Part8.zip\"]},{\"name\":\"Part 9\",\"size\":\"8.82 GB\",\"urls\":[\"https://vikingfile.com/f/xKjbdQrYTh#Part9.zip\"]},{\"name\":\"Part 10\",\"size\":\"7.50 GB\",\"urls\":[\"https://vikingfile.com/f/4azAPAXnMB#Part10.zip\"]},{\"name\":\"Part 11\",\"size\":\"7.84 GB\",\"urls\":[\"https://vikingfile.com/f/6orSUZCDF3#Part11.zip\"]},{\"name\":\"Part 12\",\"size\":\"7.61 GB\",\"urls\":[\"https://vikingfile.com/f/KqsqYmAdA5#Part12.zip\"]}]"
+    },
+    {
+      "id": 18,
+      "title": "Clair Obscur - Expedition 33",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"5.69 GB\",\"urls\":[\"https://vikingfile.com/f/9FZXe3CJNo#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"3.76 GB\",\"urls\":[\"https://vikingfile.com/f/66IjM1oecS#Part2.zip\"]},{\"name\":\"Part 3\",\"size\":\"3.17 GB\",\"urls\":[\"https://vikingfile.com/f/2M43br7iEF#Part3.zip\"]},{\"name\":\"Part 4\",\"size\":\"4.52 GB\",\"urls\":[\"https://vikingfile.com/f/ICvDvloNeU#Part4.zip\"]},{\"name\":\"Part 5\",\"size\":\"1.82 GB\",\"urls\":[\"https://vikingfile.com/f/5qWbUQphHM#Part5.zip\"]},{\"name\":\"Part 6\",\"size\":\"3.95 GB\",\"urls\":[\"https://vikingfile.com/f/nOG7ypwBFf#Part6.zip\"]},{\"name\":\"Part 7\",\"size\":\"4.22 GB\",\"urls\":[\"https://vikingfile.com/f/aOvQCJQhte#Part7.zip\"]},{\"name\":\"Part 8\",\"size\":\"3.78 GB\",\"urls\":[\"https://vikingfile.com/f/5GQkQDvTVs#Part8.zip\"]},{\"name\":\"Part 9\",\"size\":\"3.61 GB\",\"urls\":[\"https://vikingfile.com/f/onsib5znpB#Part9.zip\"]},{\"name\":\"Part 10\",\"size\":\"11.00 GB (Uncompressable)\",\"urls\":[\"https://vikingfile.com/f/ERRuGTHBKP#Part10.zip\"]},{\"name\":\"Part 11\",\"size\":\"91.71 MB\",\"urls\":[\"https://vikingfile.com/f/PJXnl2S8Al#Part11.zip\"]}]"
+    },
+    {
+      "id": 19,
+      "title": "TEKKEN 8",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"9.25 GB\",\"urls\":[\"https://vikingfile.com/f/4URcNU3YF0#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"9.20 GB\",\"urls\":[\"https://vikingfile.com/f/Mqy7StlSfo#Part2.7z\"]},{\"name\":\"Part 3\",\"size\":\"9.69 GB\",\"urls\":[\"https://vikingfile.com/f/LqX08p0bUN#Part3.7z\"]},{\"name\":\"Part 4\",\"size\":\"9.28 GB\",\"urls\":[\"https://vikingfile.com/f/Z8yNCczgYk#Part4.7z\"]},{\"name\":\"Part 5\",\"size\":\"8.23 GB\",\"urls\":[\"https://vikingfile.com/f/DaTOVAfAFC#Part5.7z\"]},{\"name\":\"Part 6\",\"size\":\"3.34 GB\",\"urls\":[\"https://vikingfile.com/f/sOY9Myu1Kv#Part6.7z\"]},{\"name\":\"Part 7\",\"size\":\"6.32 GB\",\"urls\":[\"https://vikingfile.com/f/8x8FOuH6Tl#Part7.7z\"]},{\"name\":\"Part 8\",\"size\":\"8.50 GB\",\"urls\":[\"https://vikingfile.com/f/cYegsZdUov#Part8.7z\"]},{\"name\":\"Part 9\",\"size\":\"4.97 GB\",\"urls\":[\"https://vikingfile.com/f/mycrNZ1rfM#Part9.7z\"]},{\"name\":\"Part 10\",\"size\":\"3.79 GB\",\"urls\":[\"https://vikingfile.com/f/4AM4roDpRp#Part10.7z\"]},{\"name\":\"Part 11\",\"size\":\"13.09 GB\",\"urls\":[\"https://vikingfile.com/f/yqW6o54N8z#Part11.7z\"]},{\"name\":\"Part 12\",\"size\":\"7.81 GB\",\"urls\":[\"https://vikingfile.com/f/n1P4d9ZesI#Part12.7z\"]},{\"name\":\"Part 13\",\"size\":\"7.76 GB\",\"urls\":[\"https://vikingfile.com/f/ho0uwSQ8GQ#Part13.7z\"]},{\"name\":\"Part 14\",\"size\":\"7.24 GB\",\"urls\":[\"https://vikingfile.com/f/VKFYia6du2#Part14.7z\"]},{\"name\":\"Part 15\",\"size\":\"2.94 GB\",\"urls\":[\"https://vikingfile.com/f/6SVwJ5dGK9#Part15.7z\"]}]"
+    },
+    {
+      "id": 20,
+      "title": "Dying Light: The Beast Restored Land",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"2.49 GB\",\"urls\":[\"https://vikingfile.com/f/OrRL2XapCJ#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"15.68 GB\",\"urls\":[\"https://vikingfile.com/f/sVlBqFnWhR#Part2.7z\"]},{\"name\":\"Part 3\",\"size\":\"1.18 GB\",\"urls\":[\"https://vikingfile.com/f/8way47JulT#Part3.7z\"]},{\"name\":\"Part 4\",\"size\":\"7.72 GB\",\"urls\":[\"https://vikingfile.com/f/ombZj5gek3#Part4.7z\"]},{\"name\":\"Part 5\",\"size\":\"9.30 GB\",\"urls\":[\"https://vikingfile.com/f/GODjrCFiRV#Part5.7z\"]},{\"name\":\"Part 6\",\"size\":\"5.64 GB\",\"urls\":[\"https://vikingfile.com/f/8SCI9JB2mD#Part6.7z\"]}]"
+    },
+    {
+      "id": 21,
+      "title": "007: First Light",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"249.92 MB\",\"urls\":[\"https://vikingfile.com/f/WKvEfUacIb#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"16.11 GB\",\"urls\":[\"https://vikingfile.com/f/ghixlgeHqh#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"28.20 GB\",\"urls\":[\"https://vikingfile.com/f/Hv6X2D7dJT#Part3.bin\"]}]"
+    },
+    {
+      "id": 22,
+      "title": "Red Dead Redemption 2",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"5.28 GB\",\"urls\":[\"https://fileditchfiles.me/alpha9/faad6b63fcd1744cb8f9/Part1_Setup.zip\",\"https://vikingfile.com/f/gtuS4JPo5C#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"7.29 GB\",\"urls\":[\"https://fileditchfiles.me/alpha9/b1be0abb5b2b1075df6f/Part2.bin\",\"https://vikingfile.com/f/8ng2l5ozFm#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"7.40 GB\",\"urls\":[\"https://fileditchfiles.me/alpha9/1a20db78db41bbfa83ed/Part3.bin\",\"https://vikingfile.com/f/NK4yUc0BpV#Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"7.09 GB\",\"urls\":[\"https://fileditchfiles.me/alpha9/c57420d1448b294f0b84/Part4.bin\",\"https://vikingfile.com/f/FkgS5j25rg#Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"7.71 GB\",\"urls\":[\"https://fileditchfiles.me/alpha9/2141067a45812ca273c5/Part5.bin\",\"https://vikingfile.com/f/51SL7wU2lC#Part5.bin\"]},{\"name\":\"Part 6\",\"size\":\"7.59 GB\",\"urls\":[\"https://fileditchfiles.me/alpha9/60ea6cd67613b04d28ac/Part6.bin\",\"https://vikingfile.com/f/sujtKv042r#Part6.bin\"]},{\"name\":\"Part 7\",\"size\":\"7.33 GB\",\"urls\":[\"https://fileditchfiles.me/alpha9/3500ee4ba6124b3880eb/Part7.bin\",\"https://vikingfile.com/f/Icj6bi2TQ2#Part7.bin\"]},{\"name\":\"Part 8\",\"size\":\"8.69 GB\",\"urls\":[\"https://fileditchfiles.me/alpha9/f7abfda0f732217fb17a/Part8.bin\",\"https://vikingfile.com/f/jOffXEJRi0#Part8.bin\"]},{\"name\":\"Part 9\",\"size\":\"7.33 GB\",\"urls\":[\"https://fileditchfiles.me/alpha9/5aec64c396645c2a80a7/Part9.bin\",\"https://vikingfile.com/f/dkjYDH5tad#Part9.bin\"]},{\"name\":\"Part 10\",\"size\":\"8.06 GB\",\"urls\":[\"https://fileditchfiles.me/alpha9/03f7eb1eea0a0763678c/Part10.bin\",\"https://vikingfile.com/f/fqADHqWQGE#Part10.bin\"]},{\"name\":\"Part 11\",\"size\":\"6.92 GB\",\"urls\":[\"https://fileditchfiles.me/alpha9/4014dcaa74caa3a79915/Part11.bin\",\"https://vikingfile.com/f/4I6T1kZvJx#Part11.bin\"]},{\"name\":\"Part 12\",\"size\":\"8.01 GB\",\"urls\":[\"https://fileditchfiles.me/alpha9/cdea7f8c3785c6512cde/Part12.bin\",\"https://vikingfile.com/f/apIZXBoMTZ#Part12.bin\"]},{\"name\":\"Part 13\",\"size\":\"7.48 GB\",\"urls\":[\"https://fileditchfiles.me/alpha9/ebe99485ef65ddaf1319/Part13.bin\",\"https://vikingfile.com/f/4TMB5FZZLn#Part13.bin\"]},{\"name\":\"Part 14\",\"size\":\"10.31 GB\",\"urls\":[\"https://fileditchfiles.me/alpha9/21aaff63e471265eb073/Part14.bin\",\"https://vikingfile.com/f/bdSTwG78I9#Part14.bin\"]}]"
+    },
+    {
+      "id": 23,
+      "title": "Baldur's Gate 3",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"2.17 GB\",\"urls\":[\"https://fileditchfiles.me/alpha10/5504dcdb29d4ca657f04/Part1_Setup.zip\",\"https://vikingfile.com/f/yJ8xeWy6gf#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"11.49 GB\",\"urls\":[\"https://fileditchfiles.me/alpha10/acec8fa06ec5467c2d68/Part2.bin\",\"https://vikingfile.com/f/IcrufUhWi1#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"5.70 GB\",\"urls\":[\"https://fileditchfiles.me/alpha10/9a555a76470b14be73ac/Part3.bin\",\"https://vikingfile.com/f/RKPV7zrDQI#Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"13.74 GB\",\"urls\":[\"https://fileditchfiles.me/alpha10/a476f21e7e6bd92790c3/Part4.bin\",\"https://vikingfile.com/f/nMu0WvvfhA#Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"7.94 GB\",\"urls\":[\"https://fileditchfiles.me/alpha10/581e3ab21421bef6944b/Part5.bin\",\"https://vikingfile.com/f/4iwfkJeQem#Part5.bin\"]},{\"name\":\"Part 6\",\"size\":\"8.83 GB\",\"urls\":[\"https://fileditchfiles.me/alpha10/4e9e1d0bb0aece5b8b1b/Part6.bin\",\"https://vikingfile.com/f/NmQqWJ4p5W#Part6.bin\"]},{\"name\":\"Part 7\",\"size\":\"6.98 GB\",\"urls\":[\"https://fileditchfiles.me/alpha10/ec3d11553a08e08162e7/Part7.bin\",\"https://vikingfile.com/f/JySE3rDZEY#Part7.bin\"]},{\"name\":\"Part 8\",\"size\":\"6.24 GB\",\"urls\":[\"https://fileditchfiles.me/alpha10/7ce1981b185d72d08f77/Part8.bin\",\"https://vikingfile.com/f/2q4kDyW963#Part8.bin\"]},{\"name\":\"Part 9\",\"size\":\"5.23 GB\",\"urls\":[\"https://fileditchfiles.me/alpha10/ae81236b23d8d7dcdf1c/Part9.bin\",\"https://vikingfile.com/f/n58VkGIiCK#Part9.bin\"]},{\"name\":\"Part 10\",\"size\":\"5.29 GB\",\"urls\":[\"https://fileditchfiles.me/alpha10/dd443d766c2ec1f29507/Part10.bin\",\"https://vikingfile.com/f/pYT1LkoCMv#Part10.bin\"]},{\"name\":\"Part 11\",\"size\":\"5.29 GB\",\"urls\":[\"https://fileditchfiles.me/alpha10/8ea742bcf88d9fed3786/Part11.bin\",\"https://vikingfile.com/f/lnmKrD2iwk#Part11.bin\"]},{\"name\":\"Part 12\",\"size\":\"5.28 GB\",\"urls\":[\"https://fileditchfiles.me/alpha10/53bcc9db493d9d3832b2/Part12.bin\",\"https://vikingfile.com/f/NaWv5jen2q#Part12.bin\"]},{\"name\":\"Part 13\",\"size\":\"5.27 GB\",\"urls\":[\"https://fileditchfiles.me/alpha10/a0c7e824f6f9a22269a1/Part13.bin\",\"https://vikingfile.com/f/BKV627Ld7c#Part13.bin\"]},{\"name\":\"Part 14\",\"size\":\"4.42 GB\",\"urls\":[\"https://fileditchfiles.me/alpha10/a25491f0a05eecad2298/Part14.bin\",\"https://vikingfile.com/f/5QDthmvKZa#Part14.bin\"]},{\"name\":\"Part 15\",\"size\":\"5.27 GB\",\"urls\":[\"https://fileditchfiles.me/alpha10/a36aa12aa9aa200d4ae6/Part15.bin\",\"https://vikingfile.com/f/sPAKL9ZoUK#Part15.bin\"]},{\"name\":\"Part 16\",\"size\":\"5.29 GB\",\"urls\":[\"https://fileditchfiles.me/alpha10/2db8d588f51823521578/Part16.bin\",\"https://vikingfile.com/f/b2qJvggLue#Part16.bin\"]},{\"name\":\"Part 17\",\"size\":\"5.19 GB\",\"urls\":[\"https://fileditchfiles.me/alpha10/01b628ad53e02aecb2c6/Part17.bin\",\"https://vikingfile.com/f/0vS2cCjiH8#Part17.bin\"]},{\"name\":\"Part 18\",\"size\":\"2.91 GB\",\"urls\":[\"https://fileditchfiles.me/alpha10/985fbe94c6137198e82a/Part18.bin\",\"https://vikingfile.com/f/QC0CZfUbnq#Part18.bin\"]}]"
+    },
+    {
+      "id": 24,
+      "title": "Kingdom Come Deliverance II",
+      "downloadHash": "[{\"name\":\"Full Folder (Gofile)\",\"size\":\"85.3 GB\",\"urls\":[\"https://gofile.io/d/YlRHeF\"]},{\"name\":\"Part 1 + Setup\",\"size\":\"9.69 GB\",\"urls\":[\"https://fileditchfiles.me/alpha10/79d8eb046c51b90882e1/Part1_Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"8.35 GB\",\"urls\":[\"https://fileditchfiles.me/alpha10/f496081e469293923211/Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"9.24 GB\",\"urls\":[\"https://fileditchfiles.me/alpha10/154ce9c2abc13f464217/Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"8.84 GB\",\"urls\":[\"https://fileditchfiles.me/alpha10/75416adfacfebd28e67c/Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"8.39 GB\",\"urls\":[\"https://fileditchfiles.me/alpha10/8d7c954b063e396b121b/Part5.bin\"]},{\"name\":\"Part 6\",\"size\":\"8.41 GB\",\"urls\":[\"https://fileditchfiles.me/alpha10/740d3636906b5f563141/Part6.bin\"]},{\"name\":\"Part 7\",\"size\":\"9.05 GB\",\"urls\":[\"https://fileditchfiles.me/alpha10/d70a00f794e68880505a/Part7.bin\"]},{\"name\":\"Part 8\",\"size\":\"8.46 GB\",\"urls\":[\"https://fileditchfiles.me/alpha10/f52d767df2ed78101646/Part8.bin\"]},{\"name\":\"Part 9\",\"size\":\"8.76 GB\",\"urls\":[\"https://fileditchfiles.me/alpha10/70c1b22d82aa979dc4d0/Part9.bin\"]},{\"name\":\"Part 10\",\"size\":\"6.17 GB\",\"urls\":[\"https://fileditchfiles.me/alpha10/effff203bdd1ea4846a3/Part10.bin\"]}]"
+    },
+    {
+      "id": 25,
+      "title": "God of War Ragnarok",
+      "downloadHash": "[{\"name\":\"Full Folder (Gofile)\",\"size\":\"76.4 GB\",\"urls\":[\"https://gofile.io/d/jX9FMJ\"]},{\"name\":\"Part 1 + Setup\",\"size\":\"7.27 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/90ea4811e58f2acfe12b/Part1_Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"8.27 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/093c19245daa5843fb58/Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"3.80 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/3550f40d8c5879b6f38d/Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"4.28 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/246889a6a17d1a5866ea/Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"5.45 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/9185c92dceb80d50901d/Part5.bin\"]},{\"name\":\"Part 6\",\"size\":\"3.32 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/7cfddb49036c4cf1090d/Part6.bin\"]},{\"name\":\"Part 7\",\"size\":\"3.27 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/ea64532e07595b56fdae/Part7.bin\"]},{\"name\":\"Part 8\",\"size\":\"4.82 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/c283b75df728ace8185e/Part8.bin\"]},{\"name\":\"Part 9\",\"size\":\"4.56 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/da9ad958867261760b4a/Part9.bin\"]},{\"name\":\"Part 10\",\"size\":\"3.58 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/3cfdf3cb1fe532d1edda/Part10.bin\"]},{\"name\":\"Part 11\",\"size\":\"4.34 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/e21bd5a3a488efb38259/Part11.bin\"]},{\"name\":\"Part 12\",\"size\":\"4.11 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/d7c0695fd81192a775c5/Part12.bin\"]},{\"name\":\"Part 13\",\"size\":\"3.35 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/cd0e6b18cf969bdc34e6/Part13.bin\"]},{\"name\":\"Part 14\",\"size\":\"1.66 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/75dc4cb573af111f76db/Part14.bin\"]},{\"name\":\"Part 15\",\"size\":\"3.15 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/a8d6659814eb9795f426/Part15.bin\"]},{\"name\":\"Part 16\",\"size\":\"3.91 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/efa2fddf07caa4c3e6ea/Part16.bin\"]},{\"name\":\"Part 17\",\"size\":\"4.01 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/587ac80c2324a9314d6b/Part17.bin\"]},{\"name\":\"Part 18\",\"size\":\"3.28 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/f0a420563e36477c04c3/Part18.bin\"]}]"
+    },
+    {
+      "id": 26,
+      "title": "Hogwarts Legacy",
+      "downloadHash": "[{\"name\":\"Full Folder (Gofile)\",\"size\":\"81.2 GB\",\"urls\":[\"https://gofile.io/d/dMbMj8\"]},{\"name\":\"Part 1 + Setup\",\"size\":\"9.26 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/7d4322af363481ed6605/Part1_Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"7.17 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/7185fc36ff6cc20d9145/Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"9.18 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/3f33bdd56932b6a0c80b/Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"9.81 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/f94feab43e3ae6d7d65c/Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"12.21 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/4c4453cc70e196027e2f/Part5.bin\"]},{\"name\":\"Part 6\",\"size\":\"12.91 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/f2fbbf8f3d3f63191822/Part6.bin\"]},{\"name\":\"Part 7\",\"size\":\"14.38 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/8012624ec146de7e3500/Part7.bin\"]},{\"name\":\"Part 8\",\"size\":\"6.38 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/767023ef1434db1a77ec/Part8.bin\"]}]"
+    },
+    {
+      "id": 27,
+      "title": "Indiana Jones and the Great Circle",
+      "downloadHash": "[{\"name\":\"Full Folder (Gofile)\",\"size\":\"119 GB\",\"urls\":[\"https://gofile.io/d/y4oaJz\"]},{\"name\":\"Part 1 + Setup\",\"size\":\"7.88 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/b417c56b4585130a1623/Part1_Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"5.85 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/9f5b480d2306fab954d8/Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"6.65 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/a6847cc224aa037f616a/Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"3.47 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/3fcf3a204eff7ec3a0f6/Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"6.60 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/80101b71e49f9b5b7b31/Part5.bin\"]},{\"name\":\"Part 6\",\"size\":\"6.01 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/05fd8b5fceb2691af0ff/Part6.bin\"]},{\"name\":\"Part 7\",\"size\":\"7.71 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/494a5ec6b5b0585f2166/Part7.bin\"]},{\"name\":\"Part 8\",\"size\":\"15.25 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/0c83931f5ab0933cffeb/Part8.bin\"]},{\"name\":\"Part 9\",\"size\":\"14.82 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/875e0348b3d723bc91ac/Part9.bin\"]},{\"name\":\"Part 10\",\"size\":\"8.46 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/623740d4eb95c10990ed/Part10.bin\"]},{\"name\":\"Part 11\",\"size\":\"7.82 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/a3746b9f896cb851ff0b/Part11.bin\"]},{\"name\":\"Part 12\",\"size\":\"9.28 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/84352d950a626545c882/Part12.bin\"]},{\"name\":\"Part 13\",\"size\":\"9.28 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/f0f58449f77cefb4971f/Part13.bin\"]},{\"name\":\"Part 14\",\"size\":\"10.28 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/76b4f563598fbf5e53f0/Part14.bin\"]}]"
+    },
+    {
+      "id": 28,
+      "title": "Resident Evil 4",
+      "downloadHash": "[{\"name\":\"Full Folder (Gofile)\",\"size\":\"63.7 GB\",\"urls\":[\"https://gofile.io/d/u2M3n6\"]},{\"name\":\"Part 1 + Setup\",\"size\":\"1.14 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/d154e34366bc44adc980/Part1_Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"10.28 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/6dd53a45af6cf3163480/Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"49.88 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/5c7185cb90f61f70776b/Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"2.46 GB\",\"urls\":[\"https://fileditchfiles.me/alpha11/594f2858479ad770db43/Part4.bin\"]}]"
+    },
+    {
+      "id": 29,
+      "title": "Dragon Ball Z: Kakarot",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"5.51 GB\",\"urls\":[\"https://fileditchfiles.me/alpha12/34f3173b6c56080e38d9/Part1_Setup.zip\",\"https://vikingfile.com/f/Wv6Em2CEgT#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"3.04 GB\",\"urls\":[\"https://fileditchfiles.me/alpha12/9796dafae09b60af313c/Part2.bin\",\"https://vikingfile.com/f/O7N6SbFMiY#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"5.29 GB\",\"urls\":[\"https://fileditchfiles.me/alpha12/bb602422e91a82980f67/Part3.bin\",\"https://vikingfile.com/f/daqQWDzRn4#Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"5.56 GB\",\"urls\":[\"https://fileditchfiles.me/alpha12/ebd84ea6e9e03e474fed/Part4.bin\",\"https://vikingfile.com/f/UUSt88QuG4#Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"12.36 GB\",\"urls\":[\"https://fileditchfiles.me/alpha12/2d5fae6bdf521c3a1485/Part5.bin\",\"https://vikingfile.com/f/TkwMJgPsfO#Part5.bin\"]},{\"name\":\"Part 6\",\"size\":\"33.16 GB\",\"urls\":[\"https://fileditchfiles.me/alpha12/25fa4ef784839b7aee3c/Part6.bin\",\"https://vikingfile.com/f/G2fpIE2az2#Part6.bin\"]},{\"name\":\"Part 7\",\"size\":\"8.55 GB\",\"urls\":[\"https://fileditchfiles.me/alpha12/07b72e87415794caec0e/Part7.bin\",\"https://vikingfile.com/f/yPbgEqhMD4#Part7.bin\"]},{\"name\":\"Part 8\",\"size\":\"8.76 GB\",\"urls\":[\"https://fileditchfiles.me/alpha12/2dadea965ca86c84299a/Part8.bin\",\"https://vikingfile.com/f/cbfQCYmi4u#Part8.bin\"]},{\"name\":\"Part 9\",\"size\":\"8.83 GB\",\"urls\":[\"https://fileditchfiles.me/alpha12/a45f7fce149b34729316/Part9.bin\",\"https://vikingfile.com/f/b42ldoeIUE#Part9.bin\"]},{\"name\":\"Part 10\",\"size\":\"11.11 GB\",\"urls\":[\"https://fileditchfiles.me/alpha12/8afffbdab56c3d2c459a/Part10.bin\",\"https://vikingfile.com/f/DPHG9437da#Part10.bin\"]}]"
+    },
+    {
+      "id": 30,
+      "title": "Detroit: Become Human",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"6.40 GB\",\"urls\":[\"https://vikingfile.com/f/3ioAaA5Ojp#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"8.45 GB\",\"urls\":[\"https://vikingfile.com/f/y6DxuhEcdI#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"7.98 GB\",\"urls\":[\"https://vikingfile.com/f/N92zxbZzMi#Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"7.31 GB\",\"urls\":[\"https://vikingfile.com/f/NGTuhKTi2m#Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"7.00 GB\",\"urls\":[\"https://vikingfile.com/f/4WW42gU6rW#Part5.bin\"]},{\"name\":\"Part 6\",\"size\":\"11.33 GB\",\"urls\":[\"https://vikingfile.com/f/MpovmZ2C7O#Part6.bin\"]}]"
+    },
+    {
+      "id": 31,
+      "title": "Cyberpunk 2077",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"8.72 GB\",\"urls\":[\"https://vikingfile.com/f/CemckvZnPl#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"6.24 GB\",\"urls\":[\"https://vikingfile.com/f/gxcvpf21qT#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"11.05 GB\",\"urls\":[\"https://vikingfile.com/f/rhstXN1He7#Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"3.76 GB\",\"urls\":[\"https://vikingfile.com/f/5dYqvYT50V#Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"7.72 GB\",\"urls\":[\"https://vikingfile.com/f/izQ2tHCCjY#Part5.bin\"]},{\"name\":\"Part 6\",\"size\":\"12.02 GB\",\"urls\":[\"https://vikingfile.com/f/EbVumOvsgD#Part6.bin\"]},{\"name\":\"Part 7\",\"size\":\"9.28 GB\",\"urls\":[\"https://vikingfile.com/f/zK79JF2L0y#Part7.bin\"]},{\"name\":\"Part 8\",\"size\":\"5.40 GB\",\"urls\":[\"https://vikingfile.com/f/x3YOpwYw2J#Part8.bin\"]},{\"name\":\"Part 9\",\"size\":\"12.71 GB\",\"urls\":[\"https://vikingfile.com/f/epo7BCQENz#Part9.bin\"]},{\"name\":\"Part 10\",\"size\":\"5.79 GB\",\"urls\":[\"https://vikingfile.com/f/RWpPwZb7Or#Part10.bin\"]}]"
+    },
+    {
+      "id": 32,
+      "title": "Atomic Heart: Complete Edition",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"11.02 GB\",\"urls\":[\"https://vikingfile.com/f/aZcoGQFFTn#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"12.98 GB\",\"urls\":[\"https://vikingfile.com/f/rkSuAx3wCD#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"9.03 GB\",\"urls\":[\"https://vikingfile.com/f/2Fc3Ro65nu#Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"12.95 GB\",\"urls\":[\"https://vikingfile.com/f/6XzBBPz1Rp#Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"6.60 GB\",\"urls\":[\"https://vikingfile.com/f/Zty0L3lSDJ#Part5.bin\"]},{\"name\":\"Part 6\",\"size\":\"9.70 GB\",\"urls\":[\"https://vikingfile.com/f/7USzxYmkhk#Part6.bin\"]},{\"name\":\"Part 7\",\"size\":\"4.38 GB\",\"urls\":[\"https://vikingfile.com/f/YJVDOYONJt#Part7.bin\"]},{\"name\":\"Part 8\",\"size\":\"2.19 GB\",\"urls\":[\"https://vikingfile.com/f/OxQqM3R0nF#Part8.bin\"]},{\"name\":\"Part 9\",\"size\":\"2.12 GB\",\"urls\":[\"https://vikingfile.com/f/FnqTAojtWc#Part9.bin\"]},{\"name\":\"Part 10\",\"size\":\"2.52 GB\",\"urls\":[\"https://vikingfile.com/f/zhxopvhLKF#Part10.bin\"]}]"
+    },
+    {
+      "id": 33,
+      "title": "Ghost of Tsushima DIRECTOR'S CUT",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"7.85 GB\",\"urls\":[\"https://vikingfile.com/f/27ONqGsQvG#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"6.24 GB\",\"urls\":[\"https://vikingfile.com/f/Wka0BvzYHW#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"7.08 GB\",\"urls\":[\"https://vikingfile.com/f/wOsrssmPoh#Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"7.28 GB\",\"urls\":[\"https://vikingfile.com/f/hqB8jHmeq3#Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"6.84 GB\",\"urls\":[\"https://vikingfile.com/f/aunSzXuvGL#Part5.bin\"]},{\"name\":\"Part 6\",\"size\":\"7.13 GB\",\"urls\":[\"https://vikingfile.com/f/at49SK3bJ5#Part6.bin\"]},{\"name\":\"Part 7\",\"size\":\"6.51 GB\",\"urls\":[\"https://vikingfile.com/f/vropeu7LHs#Part7.bin\"]},{\"name\":\"Part 8\",\"size\":\"3.92 GB\",\"urls\":[\"https://vikingfile.com/f/aYG4hZ5p9m#Part8.bin\"]}]"
+    },
+    {
+      "id": 34,
+      "title": "DOOM: The Dark Ages - Revelations Edition",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"3.03 GB\",\"urls\":[\"https://vikingfile.com/f/hZLwH3C2ji#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"9.12 GB\",\"urls\":[\"https://vikingfile.com/f/KACBQrzbPS#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"6.01 GB\",\"urls\":[\"https://vikingfile.com/f/2gx73rer7D#Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"6.01 GB\",\"urls\":[\"https://vikingfile.com/f/Jv8sqkug6H#Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"11.94 GB\",\"urls\":[\"https://vikingfile.com/f/dkLLmjJerl#Part5.bin\"]},{\"name\":\"Part 6\",\"size\":\"15.82 GB\",\"urls\":[\"https://vikingfile.com/f/xueD7f8BkL#Part6.bin\"]},{\"name\":\"Part 7\",\"size\":\"8.07 GB\",\"urls\":[\"https://vikingfile.com/f/Cv3h5gTeFZ#Part7.bin\"]},{\"name\":\"Part 8\",\"size\":\"6.63 GB\",\"urls\":[\"https://vikingfile.com/f/WNtU1K1lCl#Part8.bin\"]},{\"name\":\"Part 9\",\"size\":\"8.00 GB\",\"urls\":[\"https://vikingfile.com/f/zHmofmVUe4#Part9.bin\"]},{\"name\":\"Part 10\",\"size\":\"8.44 GB\",\"urls\":[\"https://vikingfile.com/f/MDWgQ52WHc#Part10.bin\"]},{\"name\":\"Part 11\",\"size\":\"8.78 GB\",\"urls\":[\"https://vikingfile.com/f/wGXxYcBpaP#Part11.bin\"]},{\"name\":\"Part 12\",\"size\":\"9.72 GB\",\"urls\":[\"https://vikingfile.com/f/rbPEnZVOt9#Part12.bin\"]},{\"name\":\"Part 13\",\"size\":\"5.70 GB\",\"urls\":[\"https://vikingfile.com/f/tUS3RvS3es#Part13.bin\"]}]"
+    },
+    {
+      "id": 35,
+      "title": "Marvel's Spider-Man: Miles Morales",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"5.97 GB\",\"urls\":[\"https://vikingfile.com/f/6RVfseuuuu#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"6.64 GB\",\"urls\":[\"https://vikingfile.com/f/Srr7Gv0Cki#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"6.85 GB\",\"urls\":[\"https://vikingfile.com/f/oyNppRZemu#Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"7.09 GB\",\"urls\":[\"https://vikingfile.com/f/3H0eo99XXm#Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"8.74 GB\",\"urls\":[\"https://vikingfile.com/f/TPm1cZdtvO#Part5.bin\"]}]"
+    },
+    {
+      "id": 36,
+      "title": "Marvel's Spider-Man Remastered",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"5.40 GB\",\"urls\":[\"https://vikingfile.com/f/bTmBfKJbuz#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"5.65 GB\",\"urls\":[\"https://vikingfile.com/f/auJxz3I0Da#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"7.27 GB\",\"urls\":[\"https://vikingfile.com/f/FGlQP2TJj4#Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"6.61 GB\",\"urls\":[\"https://vikingfile.com/f/Oj6Ss5VLAe#Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"6.20 GB\",\"urls\":[\"https://vikingfile.com/f/zNtohef43A#Part5.bin\"]},{\"name\":\"Part 6\",\"size\":\"7.34 GB\",\"urls\":[\"https://vikingfile.com/f/v2TOgHDvrv#Part6.bin\"]},{\"name\":\"Part 7\",\"size\":\"6.62 GB\",\"urls\":[\"https://vikingfile.com/f/IGBiL5K5wO#Part7.bin\"]},{\"name\":\"Part 8\",\"size\":\"3.95 GB\",\"urls\":[\"https://vikingfile.com/f/8W482JIkhU#Part8.bin\"]}]"
+    },
+    {
+      "id": 37,
+      "title": "STAR WARS Jedi: Survivor",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"3.23 GB\",\"urls\":[\"https://vikingfile.com/f/xzFrC4BJiT#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"8.35 GB\",\"urls\":[\"https://vikingfile.com/f/aqcmBxe0sX#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"6.64 GB\",\"urls\":[\"https://vikingfile.com/f/NyaYtCeaJl#Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"6.64 GB\",\"urls\":[\"https://vikingfile.com/f/BZAJ4KUxX8#Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"13.30 GB\",\"urls\":[\"https://vikingfile.com/f/IAjWLDb1bF#Part5.bin\"]},{\"name\":\"Part 6\",\"size\":\"3.51 GB\",\"urls\":[\"https://vikingfile.com/f/pVsQESx2lf#Part6.bin\"]},{\"name\":\"Part 7\",\"size\":\"9.50 GB\",\"urls\":[\"https://vikingfile.com/f/m1ErvjZrMm#Part7.bin\"]},{\"name\":\"Part 8\",\"size\":\"11.95 GB\",\"urls\":[\"https://vikingfile.com/f/2lTCvXdMWn#Part8.bin\"]},{\"name\":\"Part 9\",\"size\":\"34.98 GB\",\"urls\":[\"https://vikingfile.com/f/eL9wduW0FG#Part9.bin\"]},{\"name\":\"Part 10\",\"size\":\"8.47 GB\",\"urls\":[\"https://vikingfile.com/f/nYPQvCjFJ9#Part10.bin\"]},{\"name\":\"Part 11\",\"size\":\"18.78 GB\",\"urls\":[\"https://vikingfile.com/f/JsKXCafFst#Part11.bin\"]}]"
+    },
+    {
+      "id": 38,
+      "title": "STAR WARS Jedi: Fallen Order",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"4.68 GB\",\"urls\":[\"https://vikingfile.com/f/skfu6EK8V6#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"5.92 GB\",\"urls\":[\"https://vikingfile.com/f/vkYf6Lqob4#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"10.92 GB\",\"urls\":[\"https://vikingfile.com/f/qAUYFC9jb6#Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"4.25 GB\",\"urls\":[\"https://vikingfile.com/f/oqWSG9SqNw#Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"10.90 GB\",\"urls\":[\"https://vikingfile.com/f/IkNMTmTo7L#Part5.bin\"]},{\"name\":\"Part 6\",\"size\":\"8.00 GB\",\"urls\":[\"https://vikingfile.com/f/6cUft9RZFJ#Part6.bin\"]},{\"name\":\"Part 7\",\"size\":\"7.43 GB\",\"urls\":[\"https://vikingfile.com/f/KW87FE4tHk#Part7.bin\"]}]"
+    },
+    {
+      "id": 39,
+      "title": "The Last of Us Part I",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"4.69 GB\",\"urls\":[\"https://vikingfile.com/f/rNyB3nAUTf#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"5.75 GB\",\"urls\":[\"https://vikingfile.com/f/STcpD1G9ue#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"7.91 GB\",\"urls\":[\"https://vikingfile.com/f/LVa9LSauqT#Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"8.63 GB\",\"urls\":[\"https://vikingfile.com/f/F9JcRenL5f#Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"6.86 GB\",\"urls\":[\"https://vikingfile.com/f/D9feIrQV5U#Part5.bin\"]},{\"name\":\"Part 6\",\"size\":\"4.39 GB\",\"urls\":[\"https://vikingfile.com/f/68lTFBmTzn#Part6.bin\"]},{\"name\":\"Part 7\",\"size\":\"8.46 GB\",\"urls\":[\"https://vikingfile.com/f/Nmp6K289Sg#Part7.bin\"]},{\"name\":\"Part 8\",\"size\":\"8.59 GB\",\"urls\":[\"https://vikingfile.com/f/Uw79LQNgK6#Part8.bin\"]},{\"name\":\"Part 9\",\"size\":\"5.01 GB\",\"urls\":[\"https://vikingfile.com/f/9wSjQGDsxX#Part9.bin\"]},{\"name\":\"Part 10\",\"size\":\"7.91 GB\",\"urls\":[\"https://vikingfile.com/f/HdfcGaDQ38#Part10.bin\"]},{\"name\":\"Part 11\",\"size\":\"5.53 GB\",\"urls\":[\"https://vikingfile.com/f/yzztjWBie3#Part11.bin\"]}]"
+    },
+    {
+      "id": 40,
+      "title": "The Last of Us Part II Remastered",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"5.12 GB\",\"urls\":[\"https://vikingfile.com/f/GNGX4qALXk#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"6.41 GB\",\"urls\":[\"https://vikingfile.com/f/0rPAevaR6U#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"15.51 GB\",\"urls\":[\"https://vikingfile.com/f/ENnkWkY9Nf#Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"6.79 GB\",\"urls\":[\"https://vikingfile.com/f/EKnXxrVNOK#Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"7.66 GB\",\"urls\":[\"https://vikingfile.com/f/fxUuCpe6QO#Part5.bin\"]},{\"name\":\"Part 6\",\"size\":\"7.75 GB\",\"urls\":[\"https://vikingfile.com/f/uRnpdDEzU1#Part6.bin\"]},{\"name\":\"Part 7\",\"size\":\"6.95 GB\",\"urls\":[\"https://vikingfile.com/f/zhNKsu83cK#Part7.bin\"]},{\"name\":\"Part 8\",\"size\":\"7.53 GB\",\"urls\":[\"https://vikingfile.com/f/K5E81IfLy4#Part8.bin\"]},{\"name\":\"Part 9\",\"size\":\"4.45 GB\",\"urls\":[\"https://vikingfile.com/f/V8SkvA1rcN#Part9.bin\"]},{\"name\":\"Part 10\",\"size\":\"7.28 GB\",\"urls\":[\"https://vikingfile.com/f/lzInCQ4UBq#Part10.bin\"]},{\"name\":\"Part 11\",\"size\":\"6.37 GB\",\"urls\":[\"https://vikingfile.com/f/foLOQWnEhe#Part11.bin\"]},{\"name\":\"Part 12\",\"size\":\"7.35 GB\",\"urls\":[\"https://vikingfile.com/f/IH8DVayRCk#Part12.bin\"]},{\"name\":\"Part 13\",\"size\":\"2.66 GB\",\"urls\":[\"https://vikingfile.com/f/so7ZfiWxGr#Part13.bin\"]}]"
+    },
+    {
+      "id": 41,
+      "title": "FINAL FANTASY VII REBIRTH",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"9.42 GB\",\"urls\":[\"https://vikingfile.com/f/6cTMnDfctE#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"6.46 GB\",\"urls\":[\"https://vikingfile.com/f/MRWxLx0eaW#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"8.83 GB\",\"urls\":[\"https://vikingfile.com/f/O5f8zX2Cik#Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"7.74 GB\",\"urls\":[\"https://vikingfile.com/f/IyBCT8UGf4#Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"9.20 GB\",\"urls\":[\"https://vikingfile.com/f/mwI5iYDfSp#Part5.bin\"]},{\"name\":\"Part 6\",\"size\":\"5.65 GB\",\"urls\":[\"https://vikingfile.com/f/HFDFzbbbax#Part6.bin\"]},{\"name\":\"Part 7\",\"size\":\"7.28 GB\",\"urls\":[\"https://vikingfile.com/f/lq7lmqt950#Part7.bin\"]},{\"name\":\"Part 8\",\"size\":\"7.94 GB\",\"urls\":[\"https://vikingfile.com/f/KZxhluUKPw#Part8.bin\"]},{\"name\":\"Part 9\",\"size\":\"10.81 GB\",\"urls\":[\"https://vikingfile.com/f/BqN1RlN2WX#Part9.bin\"]},{\"name\":\"Part 10\",\"size\":\"8.95 GB\",\"urls\":[\"https://vikingfile.com/f/oNE1bLFbxw#Part10.bin\"]},{\"name\":\"Part 11\",\"size\":\"7.85 GB\",\"urls\":[\"https://vikingfile.com/f/GJNXw0SaYW#Part11.bin\"]},{\"name\":\"Part 12\",\"size\":\"5.97 GB\",\"urls\":[\"https://vikingfile.com/f/Upq36FlWn3#Part12.bin\"]},{\"name\":\"Part 13\",\"size\":\"4.19 GB\",\"urls\":[\"https://vikingfile.com/f/rqMSdLIDWA#Part13.bin\"]},{\"name\":\"Part 14\",\"size\":\"6.84 GB\",\"urls\":[\"https://vikingfile.com/f/xQdmPoRfTZ#Part14.bin\"]},{\"name\":\"Part 15\",\"size\":\"3.42 GB\",\"urls\":[\"https://vikingfile.com/f/0XqTiEV0Qh#Part15.bin\"]},{\"name\":\"Part 16\",\"size\":\"19.46 GB\",\"urls\":[\"https://vikingfile.com/f/XBBv3LElw8#Part16.bin\"]},{\"name\":\"Part 17\",\"size\":\"5.25 GB\",\"urls\":[\"https://vikingfile.com/f/wZaCB0trSG#Part17.bin\"]},{\"name\":\"Part 18\",\"size\":\"5.61 GB\",\"urls\":[\"https://vikingfile.com/f/Ky0Ttuv1db#Part18.bin\"]}]"
+    },
+    {
+      "id": 42,
+      "title": "FINAL FANTASY VII REMAKE INTERGRADE",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"8.40 GB\",\"urls\":[\"https://vikingfile.com/f/QgAZUjpJDa#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"9.63 GB\",\"urls\":[\"https://vikingfile.com/f/xwAvmDaKSw#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"7.23 GB\",\"urls\":[\"https://vikingfile.com/f/E1Qh5G8eLM#Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"8.78 GB\",\"urls\":[\"https://vikingfile.com/f/EAjnDGeCmB#Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"8.18 GB\",\"urls\":[\"https://vikingfile.com/f/qrZwrvuIwZ#Part5.bin\"]},{\"name\":\"Part 6\",\"size\":\"8.24 GB\",\"urls\":[\"https://vikingfile.com/f/StFHgT1Ocr#Part6.bin\"]},{\"name\":\"Part 7\",\"size\":\"8.40 GB\",\"urls\":[\"https://vikingfile.com/f/aHmZH6iknJ#Part7.bin\"]},{\"name\":\"Part 8\",\"size\":\"4.42 GB\",\"urls\":[\"https://vikingfile.com/f/10RL5wvvae#Part8.bin\"]},{\"name\":\"Part 9\",\"size\":\"6.99 GB\",\"urls\":[\"https://vikingfile.com/f/JiTi2cUFna#Part9.bin\"]},{\"name\":\"Part 10\",\"size\":\"6.50 GB\",\"urls\":[\"https://vikingfile.com/f/suFzDSkrek#Part10.bin\"]},{\"name\":\"Part 11\",\"size\":\"7.59 GB\",\"urls\":[\"https://vikingfile.com/f/P9h5Wu9MfH#Part11.bin\"]},{\"name\":\"Part 12\",\"size\":\"4.74 GB\",\"urls\":[\"https://vikingfile.com/f/mj5FvRdarL#Part12.bin\"]}]"
+    },
+    {
+      "id": 43,
+      "title": "Assassin's Creed Mirage",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"5.59 GB\",\"urls\":[\"https://vikingfile.com/f/bJAJXuHtaO#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"6.24 GB\",\"urls\":[\"https://vikingfile.com/f/g5zHNPDfrE#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"4.30 GB\",\"urls\":[\"https://vikingfile.com/f/lo8znD9MwT#Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"7.95 GB\",\"urls\":[\"https://vikingfile.com/f/kmwpliTIhU#Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"5.20 GB\",\"urls\":[\"https://vikingfile.com/f/iKNV86n0Bm#Part5.bin\"]},{\"name\":\"Part 6\",\"size\":\"13.14 GB\",\"urls\":[\"https://vikingfile.com/f/F98qI88FdO#Part6.bin\"]},{\"name\":\"Part 7\",\"size\":\"9.86 GB\",\"urls\":[\"https://vikingfile.com/f/bSoHinEGSC#Part7.bin\"]}]"
+    },
+    {
+      "id": 44,
+      "title": "Batman Arkham Asylum GOTY",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"5.46 GB\",\"urls\":[\"https://fileditchfiles.st/alpha15/0cd32dd6989a78a89f0a/Part1_Setup.zip\",\"https://vikingfile.com/f/VCRzm5veiL#Part1+Setup.zip\"]}]"
+    },
+    {
+      "id": 45,
+      "title": "Batman Arkham City GOTY",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"6.61 GB\",\"urls\":[\"https://fileditchfiles.st/alpha15/1abaca9dc1ebd52b8e88/Part1_Setup.zip\",\"https://vikingfile.com/f/5A6oyPtDiU#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"8.13 GB\",\"urls\":[\"https://fileditchfiles.st/alpha15/77dae67da39898506345/Part2.bin\",\"https://vikingfile.com/f/5xzdpBxGJ5#Part2.bin\"]}]"
+    },
+    {
+      "id": 46,
+      "title": "Batman Arkham Knight",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"7.99 GB\",\"urls\":[\"https://fileditchfiles.st/alpha15/7780adfae6937a9a612b/Part1_Setup.zip\",\"https://vikingfile.com/f/T7zWR3QcE2#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"8.82 GB\",\"urls\":[\"https://fileditchfiles.st/alpha15/d6e19f7ec118ec04ec56/Part2.bin\",\"https://vikingfile.com/f/hgSKxQKg8J#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"6.27 GB\",\"urls\":[\"https://fileditchfiles.st/alpha15/d92689e68e8ab5a6990d/Part3.bin\",\"https://vikingfile.com/f/0wuJOQuS1Q#Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"8.07 GB\",\"urls\":[\"https://fileditchfiles.st/alpha15/5002d20a966edcdfe281/Part4.bin\",\"https://vikingfile.com/f/U1yBKtAON2#Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"7.47 GB\",\"urls\":[\"https://fileditchfiles.st/alpha15/5f4e2b36dc7fc1ec94fc/Part5.bin\",\"https://vikingfile.com/f/snQounR6vr#Part5.bin\"]},{\"name\":\"Part 6\",\"size\":\"8.03 GB\",\"urls\":[\"https://fileditchfiles.st/alpha15/82954ea903053fcd6d32/Part6.bin\",\"https://vikingfile.com/f/breMAzvaMa#Part6.bin\"]},{\"name\":\"Part 7\",\"size\":\"5.07 GB\",\"urls\":[\"https://fileditchfiles.st/alpha15/cdfb2158ece62e6c055e/Part7.bin\",\"https://vikingfile.com/f/A8Dj7sDKAt#Part7.bin\"]}]"
+    },
+    {
+      "id": 47,
+      "title": "ELDEN RING: Shadow of the Erdtree Deluxe Edition",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"4.99 MB\",\"urls\":[\"https://fileq.net/8b65oj9rczjd.html\",\"https://vikingfile.com/f/kJDVtyhola#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"8.72 GB\",\"urls\":[\"https://fileq.net/dckxr3v0f0ew.html\",\"https://vikingfile.com/f/eN8UaVZT7B#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"11.88 GB\",\"urls\":[\"https://fileq.net/qa7y89auahi9.html\",\"https://vikingfile.com/f/I7OEOFsAIo#Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"21.20 GB\",\"urls\":[\"https://fileq.net/epncrjodxc49.html\",\"https://vikingfile.com/f/4IOpnWMTBa#Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"13.92 GB\",\"urls\":[\"https://fileq.net/o6y5wtkmxa0v.html\",\"https://vikingfile.com/f/GfFJadXr3X#Part5.bin\"]},{\"name\":\"Part 6\",\"size\":\"7.49 GB\",\"urls\":[\"https://fileq.net/j16htm6bzfbc.html\",\"https://vikingfile.com/f/EyujuHNAtr#Part6.bin\"]}]"
+    },
+    {
+      "id": 48,
+      "title": "DEATH STRANDING 2",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"6.47 GB\",\"urls\":[\"https://vikingfile.com/f/nwjDtCu64s#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"6.15 GB\",\"urls\":[\"https://vikingfile.com/f/5DzRhGVUzr#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"6.51 GB\",\"urls\":[\"https://vikingfile.com/f/dTrIhboOM4#Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"6.88 GB\",\"urls\":[\"https://vikingfile.com/f/lnC5mopwCf#Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"7.74 GB\",\"urls\":[\"https://vikingfile.com/f/PKLoUBjpkw#Part5.bin\"]},{\"name\":\"Part 6\",\"size\":\"7.32 GB\",\"urls\":[\"https://vikingfile.com/f/sXFskB9TVe#Part6.bin\"]},{\"name\":\"Part 7\",\"size\":\"5.99 GB\",\"urls\":[\"https://vikingfile.com/f/G8y8FMJK9r#Part7.bin\"]},{\"name\":\"Part 8\",\"size\":\"8.13 GB\",\"urls\":[\"https://vikingfile.com/f/RPdIXXA5Fe#Part8.bin\"]},{\"name\":\"Part 9\",\"size\":\"6.86 GB\",\"urls\":[\"https://vikingfile.com/f/iNAEMR4rFZ#Part9.bin\"]},{\"name\":\"Part 10\",\"size\":\"6.51 GB\",\"urls\":[\"https://vikingfile.com/f/zIkXvhRTbQ#Part10.bin\"]},{\"name\":\"Part 11\",\"size\":\"8.13 GB\",\"urls\":[\"https://vikingfile.com/f/9FccJLHpbi#Part11.bin\"]},{\"name\":\"Part 12\",\"size\":\"5.92 GB\",\"urls\":[\"https://vikingfile.com/f/1iwVh97wYn#Part12.bin\"]},{\"name\":\"Part 13\",\"size\":\"10.49 GB\",\"urls\":[\"https://vikingfile.com/f/cv9MLVqhYL#Part13.bin\"]}]"
+    },
+    {
+      "id": 49,
+      "title": "Call Of Duty: Black Ops III",
+      "downloadHash": "[{\"name\":\"Full Folder (Mocha.my)\",\"size\":\"102 GB\",\"urls\":[\"https://mocha.my/share/uPvQqCjdElOuvv08A8Jz2sH9hqX76okP\"]},{\"name\":\"Part 1 + Setup\",\"size\":\"9.29 GB\",\"urls\":[\"https://vikingfile.com/f/CRMRt86xaS#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"6.33 GB\",\"urls\":[\"https://vikingfile.com/f/qD3EPo7uo8#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"7.87 GB\",\"urls\":[\"https://vikingfile.com/f/EBC3cUwG3d#Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"6.71 GB\",\"urls\":[\"https://vikingfile.com/f/sP1b8vTPna#Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"9.05 GB\",\"urls\":[\"https://vikingfile.com/f/SMAnn1XAiH#Part5.bin\"]},{\"name\":\"Part 6\",\"size\":\"4.36 GB\",\"urls\":[\"https://vikingfile.com/f/ninyUjXGnC#Part6.bin\"]},{\"name\":\"Part 7\",\"size\":\"6.63 GB\",\"urls\":[\"https://vikingfile.com/f/hUDK1Aq3Xi#Part7.bin\"]},{\"name\":\"Part 8\",\"size\":\"7.72 GB\",\"urls\":[\"https://vikingfile.com/f/kEa9qQ9TiM#Part8.bin\"]},{\"name\":\"Part 9\",\"size\":\"7.56 GB\",\"urls\":[\"https://vikingfile.com/f/WIvjalJol5#Part9.bin\"]},{\"name\":\"Part 10\",\"size\":\"7.44 GB\",\"urls\":[\"https://vikingfile.com/f/Hca4nl5fYh#Part10.bin\"]},{\"name\":\"Part 11\",\"size\":\"5.00 GB\",\"urls\":[\"https://vikingfile.com/f/sygip7sPm4#Part11.bin\"]},{\"name\":\"Part 12\",\"size\":\"7.10 GB\",\"urls\":[\"https://vikingfile.com/f/Wwylmh95PY#Part12.bin\"]},{\"name\":\"Part 13\",\"size\":\"5.78 GB\",\"urls\":[\"https://vikingfile.com/f/oaSzFrRywf#Part13.bin\"]},{\"name\":\"Part 14\",\"size\":\"4.99 GB\",\"urls\":[\"https://vikingfile.com/f/piHgbSKtIX#Part14.bin\"]},{\"name\":\"Part 15\",\"size\":\"6.60 GB\",\"urls\":[\"https://vikingfile.com/f/pV5SYlnXRb#Part15.bin\"]}]"
+    },
+    {
+      "id": 50,
+      "title": "HITMAN: World Of Assassination",
+      "downloadHash": "[{\"name\":\"Full Folder (Mocha.my)\",\"size\":\"68.2 GB\",\"urls\":[\"https://mocha.my/share/xFCj7SglO1CsbTcTQ9GUTwKL5rg1o5CA\"]},{\"name\":\"Part 1 + Setup\",\"size\":\"79.89 MB\",\"urls\":[\"https://vikingfile.com/f/YkRCkXMAhU#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"11.98 GB\",\"urls\":[\"https://vikingfile.com/f/fXYxmecfY1#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"5.02 GB\",\"urls\":[\"https://vikingfile.com/f/LiX2Ng2do8#Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"7.77 GB\",\"urls\":[\"https://vikingfile.com/f/SkBDjRUEPN#Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"8.12 GB\",\"urls\":[\"https://vikingfile.com/f/cGAl5gPm9d#Part5.bin\"]},{\"name\":\"Part 6\",\"size\":\"7.11 GB\",\"urls\":[\"https://vikingfile.com/f/uf0VKhgL1D#Part6.bin\"]},{\"name\":\"Part 7\",\"size\":\"8.27 GB\",\"urls\":[\"https://vikingfile.com/f/IDRWLQGZRa#Part7.bin\"]},{\"name\":\"Part 8\",\"size\":\"7.31 GB\",\"urls\":[\"https://vikingfile.com/f/fGy2fTtHZb#Part8.bin\"]},{\"name\":\"Part 9\",\"size\":\"7.50 GB\",\"urls\":[\"https://vikingfile.com/f/xNo6RL2mbv#Part9.bin\"]},{\"name\":\"Part 10\",\"size\":\"5.12 GB\",\"urls\":[\"https://vikingfile.com/f/YxLELdieAG#Part10.bin\"]}]"
+    },
+    {
+      "id": 51,
+      "title": "Assassin's Creed: Shadows",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"320.84 MB\",\"urls\":[\"https://mocha.my/share/jtLUpilfFkvVqXN7bH5rjklunJKfwuJj\",\"https://vikingfile.com/f/ej6EuavD25#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"13.00 GB\",\"urls\":[\"https://mocha.my/share/3g50qY8MF48fa6ebVCOUZww6ImOcpTaU\",\"https://vikingfile.com/f/IPiJYHvs5I#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"6.11 GB\",\"urls\":[\"https://mocha.my/share/YTjvNALR4E_G6pwg6yhd3mnSfVHvBclf\",\"https://vikingfile.com/f/aS6QWiqqfT#Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"5.37 GB\",\"urls\":[\"https://mocha.my/share/znydbfhM3N31Fjyo8rDcbqMG_WxAkGKk\",\"https://vikingfile.com/f/9PHEcnl3C4#Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"7.33 GB\",\"urls\":[\"https://mocha.my/share/8_HgTwuInJgrjebOl3df6Qr3gaow_SdX\",\"https://vikingfile.com/f/q0tajw3YWx#Part5.bin\"]},{\"name\":\"Part 6\",\"size\":\"4.77 GB\",\"urls\":[\"https://mocha.my/share/iXO6CDnRWDAY8dSURb7Pu7goRFHp0qZF\",\"https://vikingfile.com/f/RDVkVJm0EL#Part6.bin\"]},{\"name\":\"Part 7\",\"size\":\"5.99 GB\",\"urls\":[\"https://mocha.my/share/Q8UnOrJRHMv6pyGWpMV6LwDvIHd_oioH\",\"https://vikingfile.com/f/ekmKtOjsaQ#Part7.bin\"]},{\"name\":\"Part 8\",\"size\":\"7.15 GB\",\"urls\":[\"https://mocha.my/share/c8bPS676wBAuK2OLe9Ne0nz7RQRYBBqZ\",\"https://vikingfile.com/f/nKgJopfvFn#Part8.bin\"]},{\"name\":\"Part 9\",\"size\":\"19.48 GB\",\"urls\":[\"https://mocha.my/share/XnUUEpXXXzzN0A9g1RLSOpDWeet7FJy_\",\"https://vikingfile.com/f/WmxBv3p6Mo#Part9.bin\"]},{\"name\":\"Part 10\",\"size\":\"9.23 GB\",\"urls\":[\"https://mocha.my/share/hrB6VD1LiltmnBYLZyvONvd2ZcplkFdw\",\"https://vikingfile.com/f/M4MyLaagRx#Part10.bin\"]},{\"name\":\"Part 11\",\"size\":\"7.84 GB\",\"urls\":[\"https://mocha.my/share/zQRa4YtGNDbiIpkIeH_rqYwWeIzdKTzv\",\"https://vikingfile.com/f/KZReHpQZxW#Part11.bin\"]},{\"name\":\"Part 12\",\"size\":\"7.97 GB\",\"urls\":[\"https://mocha.my/share/RCqSXQhKevJQDNv7A5O-NzA57C5SkErP\",\"https://vikingfile.com/f/kBpPvuBBEo#Part12.bin\"]},{\"name\":\"Part 13\",\"size\":\"3.07 GB\",\"urls\":[\"https://mocha.my/share/D2hq4TfMnLAj9nQr_9Z0-M6Cvs3TB9kN\",\"https://vikingfile.com/f/22bkLRejIm#Part13.bin\"]},{\"name\":\"Part 14\",\"size\":\"6.28 GB\",\"urls\":[\"https://mocha.my/share/F2bctl6d4ouFF8YIByzIN_JpKgkouMyn\",\"https://vikingfile.com/f/2QDytJ9TV6#Part14.bin\"]},{\"name\":\"Part 15\",\"size\":\"3.96 GB\",\"urls\":[\"https://mocha.my/share/2SWNWxC3FeC2-SDkx3vawVNgoZytB7R_\",\"https://vikingfile.com/f/J6tSQ519SG#Part15.bin\"]},{\"name\":\"Part 16\",\"size\":\"7.46 GB\",\"urls\":[\"https://mocha.my/share/13RQ33esDjYfC7SptWrIMiQC2v1YrRu2\",\"https://vikingfile.com/f/JiRPrEBax5#Part16.bin\"]},{\"name\":\"Part 17\",\"size\":\"9.10 GB\",\"urls\":[\"https://mocha.my/share/sLulBivPYTBCWMugxklPhdtE9yevaQWt\",\"https://vikingfile.com/f/xoNwVaS88i#Part17.bin\"]},{\"name\":\"Part 18\",\"size\":\"4.31 GB\",\"urls\":[\"https://mocha.my/share/AJGwCm3vxsDxxp1u_kjFKVxIRqsTS0JG\",\"https://vikingfile.com/f/aDHEjRTsdA#Part18.bin\"]}]"
+    },
+    {
+      "id": 52,
+      "title": "DARK SOULS™ II: Scholar of the First Sin",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"7.01 GB\",\"urls\":[\"https://mocha.my/share/nCL8-q2NU3XSvkjyTrvRJa_0fHqkX1uO\",\"https://vikingfile.com/f/kGwrR0DMkp#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"3.43 GB\",\"urls\":[\"https://mocha.my/share/PezOziHz8ulUVMCEx9K57VN7x3PVz5M_\",\"https://vikingfile.com/f/GMkzvDNrJ9#Part2.bin\"]}]"
+    },
+    {
+      "id": 53,
+      "title": "DARK SOULS III",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"5.65 GB\",\"urls\":[\"https://mocha.my/share/zi4K91MhOXYAVFN3KC9rRg6HfWId5XLU\",\"https://vikingfile.com/f/yCbT6kPkKa#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"12.5 GB\",\"urls\":[\"https://mocha.my/share/zQ_YhNR8RMYy8Mk0GZckqp5t0z7L9KWu\",\"https://vikingfile.com/f/SskCC9gBG1#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"5.71 GB\",\"urls\":[\"https://mocha.my/share/faabQyfrkkv_hUv4s0UFMjFOTF81f8zI\",\"https://vikingfile.com/f/LtlXEj4du7#Part3.bin\"]}]"
+    },
+    {
+      "id": 54,
+      "title": "DARK SOULS™: REMASTERED",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"6.27 GB\",\"urls\":[\"https://mocha.my/share/StgRWVcyRAJ6zZYk5811YprQ1NIm81Lg\",\"https://vikingfile.com/f/LB96KCMCPq#Part1+Setup.zip\"]}]"
+    },
+    {
+      "id": 55,
+      "title": "Resident Evil 3",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"853 MB\",\"urls\":[\"https://mocha.my/share/Z53PIBwcIaFe17JkrdlZofR8-0UAQb7r\",\"https://vikingfile.com/f/bAzpqwxSBk#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"18.0 GB\",\"urls\":[\"https://mocha.my/share/0SrwGJB_BvPOTIocKhcNPGDnEkFuRZdF\",\"https://vikingfile.com/f/XoocAFzGav#Part2.bin\"]}]"
+    },
+    {
+      "id": 56,
+      "title": "SILENT HILL f",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"3.76 GB\",\"urls\":[\"https://mocha.my/share/8LruqR28SahcTz1w4MyLuRmHbwUQKF_6\",\"https://vikingfile.com/f/JTcfNoCYjn#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"10.39 GB\",\"urls\":[\"https://mocha.my/share/s9tDVG3UpZ4EPvoi-xzmlxRqnzKOnsCO\",\"https://vikingfile.com/f/CX8VMiHJjE#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"26.20 GB\",\"urls\":[\"https://mocha.my/share/i_x_A6BWyXW2X_S5cGDb8VjP7nYs-Xnm\",\"https://vikingfile.com/f/LNN3rbmMg1#Part3.bin\"]}]"
+    },
+    {
+      "id": 57,
+      "title": "SILENT HILL 2",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"5.12 GB\",\"urls\":[\"https://mocha.my/share/YaKOnNaFv1geCuR7j6IEuq4kkOtZWBTi\",\"https://vikingfile.com/f/eZCYwceo9m#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"27.60 GB\",\"urls\":[\"https://mocha.my/share/KbPnz13u-K17Yqig3R5Nc0sWTTmUtZpJ\",\"https://vikingfile.com/f/mr6I2hFq2n#Part2.bin\"]}]"
+    },
+    {
+      "id": 58,
+      "title": "Assassin's Creed Odyssey",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"466.91 MB\",\"urls\":[\"https://fileditchfiles.st/alpha18/dd792ab11c1f524c631e/Part1_Setup.zip\",\"https://vikingfile.com/f/cLcTYP8qU2#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"6.10 GB\",\"urls\":[\"https://fileditchfiles.st/alpha18/8554f42c40d2148473ec/Part2.bin\",\"https://vikingfile.com/f/RPacWc3AKD#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"11.67 GB\",\"urls\":[\"https://fileditchfiles.st/alpha18/ea2a979c08594fed7462/Part3.bin\",\"https://vikingfile.com/f/JMmQJGWw0l#Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"6.78 GB\",\"urls\":[\"https://fileditchfiles.st/alpha18/bfe52c114266c8237b70/Part4.bin\",\"https://vikingfile.com/f/Ks3D5bdzYM#Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"5.23 GB\",\"urls\":[\"https://fileditchfiles.st/alpha18/e14479923ba24cf4142a/Part5.bin\",\"https://vikingfile.com/f/Vb3ORI1wP8#Part5.bin\"]},{\"name\":\"Part 6\",\"size\":\"6.44 GB\",\"urls\":[\"https://fileditchfiles.st/alpha18/1c15c1a2f4dea29f795f/Part6.bin\",\"https://vikingfile.com/f/nborZYE3zs#Part6.bin\"]},{\"name\":\"Part 7\",\"size\":\"5.84 GB\",\"urls\":[\"https://fileditchfiles.st/alpha18/deadcf019c2fe33a57a9/Part7.bin\",\"https://vikingfile.com/f/xIuz2ogTsw#Part7.bin\"]},{\"name\":\"Part 8\",\"size\":\"5.54 GB\",\"urls\":[\"https://fileditchfiles.st/alpha18/facaa72edc0984ca1273/Part8.bin\",\"https://vikingfile.com/f/GgU9LStbfO#Part8.bin\"]},{\"name\":\"Part 9\",\"size\":\"5.05 GB\",\"urls\":[\"https://fileditchfiles.st/alpha18/696d72f01524c6584c91/Part9.bin\",\"https://vikingfile.com/f/82l9MLL09C#Part9.bin\"]},{\"name\":\"Part 10\",\"size\":\"6.12 GB\",\"urls\":[\"https://fileditchfiles.st/alpha18/b2049a315c2c33040ef9/Part10.bin\",\"https://vikingfile.com/f/JWb4rHhmua#Part10.bin\"]},{\"name\":\"Part 11\",\"size\":\"7.86 GB\",\"urls\":[\"https://fileditchfiles.st/alpha18/1d64c9dc4f2da4617071/Part11.bin\",\"https://vikingfile.com/f/VbLK2S6fBr#Part11.bin\"]},{\"name\":\"Part 12\",\"size\":\"6.51 GB\",\"urls\":[\"https://fileditchfiles.st/alpha18/30d81a04c1e712b44384/Part12.bin\",\"https://vikingfile.com/f/Za5INfMEsC#Part12.bin\"]}]"
+    },
+    {
+      "id": 59,
+      "title": "Assassin's Creed Origins",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"2.92 GB\",\"urls\":[\"https://fileditchfiles.st/alpha18/99cf97bae8501c6e982a/Part1_Setup.zip\",\"https://vikingfile.com/f/KJMqh9fkzz#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"5.38 GB\",\"urls\":[\"https://fileditchfiles.st/alpha18/c4de37c4990495fed6ec/Part2.bin\",\"https://vikingfile.com/f/ZeKQ9b9mvn#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"7.02 GB\",\"urls\":[\"https://fileditchfiles.st/alpha18/b6b7652ded4196b731c4/Part3.bin\",\"https://vikingfile.com/f/SYjJxUFlDR#Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"6.90 GB\",\"urls\":[\"https://fileditchfiles.st/alpha18/99809683277fecff0f8d/Part4.bin\",\"https://vikingfile.com/f/wwJ1Gn6Xxz#Part4.bin\"]},{\"name\":\"Part 5\",\"size\":\"5.32 GB\",\"urls\":[\"https://fileditchfiles.st/alpha18/463fa74c6ec70a094535/Part5.bin\",\"https://vikingfile.com/f/92EdijpX7R#Part5.bin\"]},{\"name\":\"Part 6\",\"size\":\"4.47 GB\",\"urls\":[\"https://fileditchfiles.st/alpha18/7c7c71e3cd3a0f8dab6d/Part6.bin\",\"https://vikingfile.com/f/H9Mz8c0xTD#Part6.bin\"]},{\"name\":\"Part 7\",\"size\":\"8.39 GB\",\"urls\":[\"https://fileditchfiles.st/alpha18/d71d3808e6f1197d6011/Part7.bin\",\"https://vikingfile.com/f/8Hyw2dQ7Sp#Part7.bin\"]},{\"name\":\"Part 8\",\"size\":\"8.37 GB\",\"urls\":[\"https://fileditchfiles.st/alpha18/87ca49f2588446805fb5/Part8.bin\",\"https://vikingfile.com/f/4lu345XH6j#Part8.bin\"]}]"
+    },
+    {
+      "id": 60,
+      "title": "Need For Speed Heat",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"6.16 GB\",\"urls\":[\"https://fileditchfiles.st/beta17/799ca8b7408bd94db17e/Part1_Setup.zip\",\"https://mocha.my/share/ns0XUOXaIUVVQKh1FIa24IF-228h5Iuj\",\"https://vikingfile.com/f/ZwtB7R75zn#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"8.50 GB\",\"urls\":[\"https://fileditchfiles.st/beta17/a09ec6c51c2520ed8225/Part2.bin\",\"https://mocha.my/share/cnkz91ZOu3blScnPCLEI_Bol3TEXhBQk\",\"https://vikingfile.com/f/l5vLnEXkG0#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"7.40 GB\",\"urls\":[\"https://fileditchfiles.st/beta17/f64aa59af741acd276aa/Part3.bin\",\"https://mocha.my/share/Ytjg6zpA_QXR5MoQu6ECS75Sr-WamtIc\",\"https://vikingfile.com/f/qdX9jWF5xV#Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"4.63 GB\",\"urls\":[\"https://fileditchfiles.st/beta17/a6a6c5415997281cd9dc/Part4.bin\",\"https://mocha.my/share/8KZgntEEhWr0eLRboKZM0KYuL82OXI_T\",\"https://vikingfile.com/f/loA7u8D5Tw#Part4.bin\"]}]"
+    },
+    {
+      "id": 61,
+      "title": "The First Berserker: Khazan",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"5.13 GB\",\"urls\":[\"https://fileditchfiles.st/alpha19/797c6ed9c4e1f88a0633/Part1_Setup.zip\",\"https://mocha.my/share/ThkifG38usW3sc5Y494HYkGP2uMDZ_CD\",\"https://vikingfile.com/f/Q2QqwLf8Nm#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"10.39 GB\",\"urls\":[\"https://fileditchfiles.st/alpha19/ec15042cc11dfae8c73a/Part2.bin\",\"https://mocha.my/share/CNFggk_pBFav7zgbWZx_PKsaHCDHOpJB\",\"https://vikingfile.com/f/0QhelEFQ0L#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"4.82 GB\",\"urls\":[\"https://fileditchfiles.st/alpha19/88d531c462e4d0a6931a/Part3.bin\",\"https://mocha.my/share/zj_1AN38LCNVSU9rsmZeuQw_pKTOltWw\",\"https://vikingfile.com/f/vSdZpgwXJi#Part3.bin\"]}]"
+    }
+  ],
+  "updates": [
+    {
+      "gameId": 1,
+      "version": "v354.221 to v360.259",
+      "date": "2026-05-18"
+    },
+    {
+      "gameId": 1,
+      "version": "v360.259 to v364.933",
+      "date": "2026-05-27"
+    },
+    {
+      "gameId": 1,
+      "version": "v364.933 to v375.327",
+      "date": "2026-06-15"
+    },
+    {
+      "gameId": 1,
+      "version": "v375.327 to v379.939",
+      "date": "2026-06-19"
+    },
+    {
+      "gameId": 1,
+      "version": "v379.939 to v382.893",
+      "date": "2026-06-23"
+    },
+    {
+      "gameId": 1,
+      "version": "v382.893 to v398.092",
+      "date": "2026‑07‑13"
+    },
+    {
+      "gameId": 1,
+      "version": "v398.092 to v403.798",
+      "date": "2026‑07‑20"
+    },
+    {
+      "gameId": 21,
+      "version": "v1.0.0(Voices38) to v1.1.0(RUNE)",
+      "date": "2026-07-24"
+    }
+  ],
+  "status": [
+    {
+      "name": "Metro 2033",
+      "status": "soon",
+      "eta": "2-4 Days",
+      "details": "Requested Game"
+    },
+    {
+      "name": "Metro: Last Light",
+      "status": "soon",
+      "eta": "2-4 Days",
+      "details": "Requested Game"
+    },
+    {
+      "name": "Metro Exodus",
+      "status": "soon",
+      "eta": "2-4 Days",
+      "details": "Requested Game"
+    },
+    {
+      "name": "Metro Awakening(VR)",
+      "status": "soon",
+      "eta": "2-4 Days",
+      "details": "Requested Game"
+    },
+    {
+      "name": "Resident Evil 6",
+      "status": "planned",
+      "eta": "",
+      "details": "Requested Game"
+    },
+    {
+      "name": "Resident Evil 7: Biohazard",
+      "status": "planned",
+      "eta": "",
+      "details": "Requested Game"
+    },
+    {
+      "name": "Resident Evil Village",
+      "status": "planned",
+      "eta": "",
+      "details": "Requested Game"
+    }
+  ],
+  "lastStatusMessageId": "1530573143717056555"
+}
