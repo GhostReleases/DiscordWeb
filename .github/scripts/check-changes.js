@@ -71,12 +71,12 @@ async function sendWebhook(webhookUrl, content, embed = null, wait = false) {
 }
 
 function buildGameEmbed(game) {
-  // Banner: try Steam, fallback to game.image
+  // USE YOUR SITE IMAGE FIRST, fallback to Steam
   let imageUrl = null;
-  if (game.steamAppId) {
-    imageUrl = `https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/${game.steamAppId}/header.jpg`;
-  } else if (game.image) {
+  if (game.image) {
     imageUrl = game.image;
+  } else if (game.steamAppId) {
+    imageUrl = `https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/${game.steamAppId}/header.jpg`;
   }
 
   const fields = [];
@@ -90,7 +90,7 @@ function buildGameEmbed(game) {
     title: game.title,
     description: game.description ? game.description.slice(0, 4000) : 'No description available.',
     color: 0xb367d6,
-    url: `https://ghostreleases.com/game-${game.id}.html`, // future HTML page
+    url: `https://ghostreleases.com/game-${game.id}.html`,
     fields,
     image: imageUrl ? { url: imageUrl } : undefined,
     footer: { text: 'Ghost Releases' }
@@ -121,7 +121,6 @@ function buildUpdateEmbed(update, gameTitle) {
 }
 
 function getDownloadHash(game) {
-  // Create a hash of the downloadParts to detect changes
   const parts = game.downloadParts || [];
   return JSON.stringify(parts.map(p => ({ name: p.name, size: p.size, urls: (p.mirrors || []).map(m => m.url).concat(p.url || []).sort() })));
 }
@@ -136,13 +135,11 @@ async function run() {
     console.log('📡 Fetching status.html...');
     const statusHtml = await fetchFile('https://ghostreleases.com/status.html');
 
-    // Parse gamesData
     const gameMatch = scriptJs.match(/const gamesData = (\[[\s\S]*?\]);/);
     if (!gameMatch) throw new Error('Could not find gamesData');
     const gamesData = eval(gameMatch[1]);
     console.log(`✅ Parsed gamesData: ${gamesData.length} games`);
 
-    // Parse repackProjects
     const statusMatch = statusHtml.match(/const repackProjects = (\[[\s\S]*?\]);/);
     if (!statusMatch) throw new Error('Could not find repackProjects');
     const repackProjects = eval(statusMatch[1]);
@@ -151,12 +148,9 @@ async function run() {
     // ==============================
     // DETECT CHANGES
     // ==============================
-
-    // New games
     const newGames = gamesData.filter(g => !previous.games.some(p => p.id === g.id));
     console.log(`🔍 New games: ${newGames.length}`);
 
-    // Updated repacks (downloadParts changed)
     const updatedRepacks = gamesData.filter(g => {
       const prev = previous.games.find(p => p.id === g.id);
       if (!prev) return false;
@@ -164,7 +158,6 @@ async function run() {
     });
     console.log(`🔍 Updated repacks: ${updatedRepacks.length}`);
 
-    // New updates
     const newUpdates = [];
     gamesData.forEach(g => {
       const prevUpdates = previous.updates.filter(u => u.gameId === g.id);
@@ -176,7 +169,6 @@ async function run() {
     });
     console.log(`🔍 New updates: ${newUpdates.length}`);
 
-    // Status changes
     const currentStatus = repackProjects.map(p => ({ name: p.name, status: p.status, eta: p.eta, details: p.details || '' }));
     const newStatus = currentStatus.filter(p => !previous.status.some(s => s.name === p.name));
     const changedStatus = currentStatus.filter(p => {
@@ -201,23 +193,19 @@ async function run() {
       lastStatusMessageId: previous.lastStatusMessageId
     };
 
-    // --- RELEASES (new + updated repacks) ---
+    // --- RELEASES ---
     const releaseItems = [...newGames, ...updatedRepacks];
     if (releaseItems.length > 0 && webhookReleases) {
       await sendWebhook(webhookReleases, `${ROLE_RELEASES} **🎮 New Release(s):**`);
       for (const game of releaseItems) {
         const isUpdate = updatedRepacks.includes(game);
         const embed = buildGameEmbed(game);
-        // Add a note if it's an updated repack
         if (isUpdate) {
           embed.description = (embed.description || '') + '\n\n🔄 **This repack has been updated** – new download parts available!';
         }
         const result = await sendWebhook(webhookReleases, null, embed);
-        if (result.success) {
-          console.log(`✅ Sent release embed for ${game.title}`);
-        } else {
-          console.log(`❌ Failed to send release for ${game.title}: ${result.error}`);
-        }
+        if (result.success) console.log(`✅ Sent release embed for ${game.title}`);
+        else console.log(`❌ Failed to send release for ${game.title}: ${result.error}`);
         await new Promise(r => setTimeout(r, 800));
       }
       console.log(`✅ Sent ${releaseItems.length} release embeds.`);
@@ -231,11 +219,8 @@ async function run() {
       for (const update of newUpdates) {
         const embed = buildUpdateEmbed(update, update.gameTitle);
         const result = await sendWebhook(webhookUpdates, null, embed);
-        if (result.success) {
-          console.log(`✅ Sent update embed for ${update.gameTitle}`);
-        } else {
-          console.log(`❌ Failed to send update for ${update.gameTitle}: ${result.error}`);
-        }
+        if (result.success) console.log(`✅ Sent update embed for ${update.gameTitle}`);
+        else console.log(`❌ Failed to send update for ${update.gameTitle}: ${result.error}`);
         await new Promise(r => setTimeout(r, 800));
       }
       console.log(`✅ Sent ${newUpdates.length} update embeds.`);
@@ -243,19 +228,25 @@ async function run() {
       console.log('ℹ️ No new updates.');
     }
 
-    // --- STATUS (delete old, send new) ---
+    // --- STATUS (delete old + send new) ---
     if ((newStatus.length > 0 || changedStatus.length > 0) && webhookStatus) {
-      // Delete old message using `?wait=true` to get ID
+      // Delete old status message
       if (previous.lastStatusMessageId) {
         try {
           const delRes = await fetch(`${webhookStatus}/messages/${previous.lastStatusMessageId}`, { method: 'DELETE' });
-          if (delRes.ok) console.log('🗑️ Deleted old status message');
-          else console.log(`⚠️ Could not delete old status: ${delRes.status}`);
+          if (delRes.ok) {
+            console.log('🗑️ Deleted old status message');
+            // Clear the stored ID so we don't try to delete again
+            previous.lastStatusMessageId = null;
+          } else {
+            console.log(`⚠️ Could not delete old status: ${delRes.status}`);
+          }
         } catch (e) {
           console.log('⚠️ Error deleting old status:', e.message);
         }
       }
 
+      // Build status message
       let statusText = `${ROLE_STATUS} **📊 Status Update(s):**\n`;
       if (newStatus.length > 0) {
         statusText += '\n*New projects added:*\n';
@@ -270,12 +261,15 @@ async function run() {
       }
       statusText += '\n📊 Check the Status page for more details!';
 
+      // Send new status with ?wait=true to get the message ID
       const result = await sendWebhook(webhookStatus, statusText, null, true);
       if (result.success && result.data && result.data.id) {
         newState.lastStatusMessageId = result.data.id;
         console.log('✅ New status sent and ID saved.');
       } else {
-        console.log('⚠️ Status sent but ID not stored.');
+        console.log('⚠️ Status sent but ID not stored:', result.error || 'unknown');
+        // If the webhook didn't return an ID, don't store one
+        newState.lastStatusMessageId = null;
       }
     } else {
       console.log('ℹ️ No status changes.');
@@ -284,8 +278,13 @@ async function run() {
     // ==============================
     // SAVE STATE
     // ==============================
+    // Ensure the directory exists
+    const stateDir = path.dirname(stateFile);
+    if (!fs.existsSync(stateDir)) {
+      fs.mkdirSync(stateDir, { recursive: true });
+    }
     fs.writeFileSync(stateFile, JSON.stringify(newState, null, 2));
-    console.log('💾 State saved.');
+    console.log('💾 State saved to:', stateFile);
 
   } catch (error) {
     console.error('❌ Error:', error.message);
