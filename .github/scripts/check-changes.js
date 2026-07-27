@@ -34,6 +34,14 @@ async function fetchFile(url) {
   return res.text();
 }
 
+function slugify(title) {
+    return title
+        .replace(/™|®|©/g, '')
+        .replace(/['"“”‘’]/g, '')
+        .replace(/[^a-zA-Z0-9]/g, '')
+        .replace(/\s+/g, '');
+}
+
 async function sendWebhook(webhookUrl, content, embed = null, wait = false) {
   const url = wait ? `${webhookUrl}?wait=true` : webhookUrl;
   const payload = { content, embeds: embed ? [embed] : [] };
@@ -90,7 +98,7 @@ function buildGameEmbed(game) {
     title: game.title,
     description: game.description ? game.description.slice(0, 4000) : 'No description available.',
     color: 0xb367d6,
-    url: `https://ghostreleases.com/game-${game.id}.html`,
+    url: `https://ghostreleases.com/games/${slugify(game.title)}.html`,
     fields,
     image: imageUrl ? { url: imageUrl } : undefined,
     footer: { text: 'Ghost Releases' }
