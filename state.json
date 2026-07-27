@@ -339,6 +339,16 @@
       "id": 68,
       "title": "Resident Evil: Village",
       "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"6.40 GB\",\"urls\":[\"https://fileditchfiles.st/alpha20/3c4d9751982058ff03f7/Part1_Setup.zip\",\"https://mocha.my/share/RHppMFwvdZSWqwTWoMGqHz-Ak_5qC6fU\",\"https://vikingfile.com/f/wcFsY2VhMt#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"24.23 GB\",\"urls\":[\"https://fileditchfiles.st/alpha20/ff99de658551ba2f0cf9/Part2.bin\",\"https://mocha.my/share/DjVifvCWggfTCy7EybNzdKkHFnON455A\",\"https://vikingfile.com/f/PK9seLbtWR#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"2.71 GB\",\"urls\":[\"https://fileditchfiles.st/alpha20/60853234f65de955341e/Part3.bin\",\"https://mocha.my/share/-547omKDkwELKZoG8YSpOizhBwHO4ggo\",\"https://vikingfile.com/f/pIVj3A8j62#Part3.bin\"]}]"
+    },
+    {
+      "id": 69,
+      "title": "Diablo II: Resurrected – Infernal Edition",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"8.70 GB\",\"urls\":[\"https://fileditchfiles.st/alpha20/8dc9ae0a0004db0b8ecd/Part1_Setup.zip\",\"https://mocha.my/share/cC-bvVaY9yq9nPeSwN1t3l1rd-5Gaoy3\",\"https://vikingfile.com/f/4w2L3ZLVyJ#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"8.85 GB\",\"urls\":[\"https://fileditchfiles.st/alpha20/868afd6b1e35c4790679/Part2.bin\",\"https://mocha.my/share/3ZM3G-IRFmh6n-vfb8Z3Ly4pWQKlKLqe\",\"https://vikingfile.com/f/qt0D4bpxO2#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"9.67 GB\",\"urls\":[\"https://fileditchfiles.st/alpha20/baa00157bd72f70d9961/Part3.bin\",\"https://mocha.my/share/zCIQA31pGaZoozv_dv7fnnpF35GjkX8X\",\"https://vikingfile.com/f/NjwPV6tBmL#Part3.bin\"]},{\"name\":\"Part 4\",\"size\":\"11.25 GB\",\"urls\":[\"https://fileditchfiles.st/alpha20/7423b300124f16e7dbb5/Part4.bin\",\"https://mocha.my/share/XLiZqDw5c6RnvG6dgZWRcR34psPsiaV9\",\"https://vikingfile.com/f/fNrE6aYX5o#Part4.bin\"]}]"
+    },
+    {
+      "id": 70,
+      "title": "DragonSword: Awakening",
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"6.89 GB\",\"urls\":[\"https://fileditchfiles.st/alpha20/8a985a1921634ff47c9f/Part1_Setup.zip\",\"https://mocha.my/share/rP_aTCfEymoBgioXSPStnrNqMo7ijrYx\",\"https://vikingfile.com/f/IdfgSa7Zsq#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"8.32 GB\",\"urls\":[\"https://fileditchfiles.st/alpha20/ce11afb36d8d90c0ee92/Part2.bin\",\"https://mocha.my/share/97ngszd4s0jsgy8L4d8cOAQZw90XHaP0\",\"https://vikingfile.com/f/3lFitlhF1p#Part2.bin\"]}]"
     }
   ],
   "updates": [
@@ -383,19 +393,6 @@
       "date": "2026-07-24"
     }
   ],
-  "status": [
-    {
-      "name": "Diablo II: Resurrected Infernal Edition",
-      "status": "planned",
-      "eta": "",
-      "details": "Requested Game"
-    },
-    {
-      "name": "DragonSword: Awakening",
-      "status": "planned",
-      "eta": "",
-      "details": "Requested Game"
-    }
-  ],
+  "status": [],
   "lastStatusMessageId": "1531257986280980500"
 }
