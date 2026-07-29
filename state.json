@@ -393,6 +393,31 @@
       "date": "2026-07-24"
     }
   ],
-  "status": [],
-  "lastStatusMessageId": "1531257986280980500"
+  "status": [
+    {
+      "name": "Horizon Zero Dawn",
+      "status": "soon",
+      "eta": "2-4 Days",
+      "details": ""
+    },
+    {
+      "name": "Control: Ultimate Edition",
+      "status": "soon",
+      "eta": "2-4 Days",
+      "details": ""
+    },
+    {
+      "name": "Borderlands 3",
+      "status": "planned",
+      "eta": "",
+      "details": ""
+    },
+    {
+      "name": "Starfield",
+      "status": "planned",
+      "eta": "",
+      "details": ""
+    }
+  ],
+  "lastStatusMessageId": "1532012846538559542"
 }
