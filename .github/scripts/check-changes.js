@@ -9,6 +9,8 @@ const ROLE_RELEASES = '<@&1530516129158529175>';
 const ROLE_UPDATES = '<@&1530516105846587483>';    
 const ROLE_STATUS = '<@&1530529602265550988>';    
 
+const MESSAGE_DELAY = 1500;
+
 // ==============================
 // STATE
 // ==============================
@@ -34,14 +36,6 @@ async function fetchFile(url) {
   return res.text();
 }
 
-function slugify(title) {
-    return title
-        .replace(/™|®|©/g, '')
-        .replace(/['"“”‘’]/g, '')
-        .replace(/[^a-zA-Z0-9]/g, '')
-        .replace(/\s+/g, '');
-}
-
 async function sendWebhook(webhookUrl, content, embed = null, wait = false) {
   const url = wait ? `${webhookUrl}?wait=true` : webhookUrl;
   const payload = { content, embeds: embed ? [embed] : [] };
@@ -56,9 +50,9 @@ async function sendWebhook(webhookUrl, content, embed = null, wait = false) {
         body: JSON.stringify(payload)
       });
       if (res.status === 429) {
-        const retryAfter = parseInt(res.headers.get('retry-after')) * 1000 || 2000;
-        console.log(`⏳ Rate limited, waiting ${retryAfter}ms...`);
-        await new Promise(r => setTimeout(r, retryAfter));
+        const retryAfter = parseInt(res.headers.get('retry-after')) || 5;
+        console.log(`⏳ Rate limited, waiting ${retryAfter}s...`);
+        await new Promise(r => setTimeout(r, retryAfter * 1000));
         attempt++;
         continue;
       }
@@ -78,8 +72,15 @@ async function sendWebhook(webhookUrl, content, embed = null, wait = false) {
   return { success: false, error: 'Max retries exceeded' };
 }
 
+function slugify(title) {
+  return title
+    .replace(/™|®|©/g, '')
+    .replace(/['"“”‘’]/g, '')
+    .replace(/[^a-zA-Z0-9]/g, '')
+    .replace(/\s+/g, '');
+}
+
 function buildGameEmbed(game) {
-  // USE YOUR SITE IMAGE FIRST, fallback to Steam
   let imageUrl = null;
   if (game.image) {
     imageUrl = game.image;
@@ -122,7 +123,7 @@ function buildUpdateEmbed(update, gameTitle) {
     title: `${gameTitle} – ${update.version}`,
     description: update.description ? update.description.slice(0, 4000) : 'No patch notes provided.',
     color: 0xf0a030,
-    url: `https://ghostreleases.com/game-${update.gameId}.html`,
+    url: `https://ghostreleases.com/games/${slugify(gameTitle)}.html`,
     fields,
     footer: { text: 'Ghost Releases' }
   };
@@ -153,9 +154,7 @@ async function run() {
     const repackProjects = eval(statusMatch[1]);
     console.log(`✅ Parsed repackProjects: ${repackProjects.length} projects`);
 
-    // ==============================
-    // DETECT CHANGES
-    // ==============================
+    // --- Detect changes ---
     const newGames = gamesData.filter(g => !previous.games.some(p => p.id === g.id));
     console.log(`🔍 New games: ${newGames.length}`);
 
@@ -177,19 +176,26 @@ async function run() {
     });
     console.log(`🔍 New updates: ${newUpdates.length}`);
 
+    // ==============================
+    // IMPROVED STATUS DETECTION
+    // ==============================
     const currentStatus = repackProjects.map(p => ({ name: p.name, status: p.status, eta: p.eta, details: p.details || '' }));
-    const newStatus = currentStatus.filter(p => !previous.status.some(s => s.name === p.name));
-    const changedStatus = currentStatus.filter(p => {
-      const prev = previous.status.find(s => s.name === p.name);
+    const previousStatusMap = previous.status.reduce((acc, s) => { acc[s.name] = s; return acc; }, {});
+    const currentStatusMap = currentStatus.reduce((acc, s) => { acc[s.name] = s; return acc; }, {});
+
+    const newProjects = currentStatus.filter(p => !previousStatusMap[p.name]);
+    const removedProjects = previous.status.filter(p => !currentStatusMap[p.name]);
+    const changedProjects = currentStatus.filter(p => {
+      const prev = previousStatusMap[p.name];
       if (!prev) return false;
-      return prev.status !== p.status || prev.eta !== p.eta;
+      return prev.status !== p.status || prev.eta !== p.eta || prev.details !== p.details;
     });
-    console.log(`🔍 New status: ${newStatus.length}, Status changes: ${changedStatus.length}`);
+
+    console.log(`🔍 Status: New ${newProjects.length}, Removed ${removedProjects.length}, Changed ${changedProjects.length}`);
 
     // ==============================
     // SEND WEBHOOKS
     // ==============================
-
     const webhookReleases = process.env.WEBHOOK_RELEASES;
     const webhookUpdates = process.env.WEBHOOK_UPDATES;
     const webhookStatus = process.env.WEBHOOK_STATUS;
@@ -205,6 +211,7 @@ async function run() {
     const releaseItems = [...newGames, ...updatedRepacks];
     if (releaseItems.length > 0 && webhookReleases) {
       await sendWebhook(webhookReleases, `${ROLE_RELEASES} **🎮 New Release(s):**`);
+      let sent = 0;
       for (const game of releaseItems) {
         const isUpdate = updatedRepacks.includes(game);
         const embed = buildGameEmbed(game);
@@ -212,11 +219,15 @@ async function run() {
           embed.description = (embed.description || '') + '\n\n🔄 **This repack has been updated** – new download parts available!';
         }
         const result = await sendWebhook(webhookReleases, null, embed);
-        if (result.success) console.log(`✅ Sent release embed for ${game.title}`);
-        else console.log(`❌ Failed to send release for ${game.title}: ${result.error}`);
-        await new Promise(r => setTimeout(r, 800));
+        if (result.success) {
+          sent++;
+          console.log(`✅ Sent release embed for ${game.title} (${sent}/${releaseItems.length})`);
+        } else {
+          console.log(`❌ Failed to send release for ${game.title}: ${result.error}`);
+        }
+        await new Promise(r => setTimeout(r, MESSAGE_DELAY));
       }
-      console.log(`✅ Sent ${releaseItems.length} release embeds.`);
+      console.log(`✅ Sent ${sent} release embeds.`);
     } else {
       console.log('ℹ️ No new releases or updated repacks.');
     }
@@ -224,75 +235,103 @@ async function run() {
     // --- UPDATES ---
     if (newUpdates.length > 0 && webhookUpdates) {
       await sendWebhook(webhookUpdates, `${ROLE_UPDATES} **🔄 New Update(s):**`);
+      let sent = 0;
       for (const update of newUpdates) {
         const embed = buildUpdateEmbed(update, update.gameTitle);
         const result = await sendWebhook(webhookUpdates, null, embed);
-        if (result.success) console.log(`✅ Sent update embed for ${update.gameTitle}`);
-        else console.log(`❌ Failed to send update for ${update.gameTitle}: ${result.error}`);
-        await new Promise(r => setTimeout(r, 800));
+        if (result.success) {
+          sent++;
+          console.log(`✅ Sent update embed for ${update.gameTitle} (${sent}/${newUpdates.length})`);
+        } else {
+          console.log(`❌ Failed to send update for ${update.gameTitle}: ${result.error}`);
+        }
+        await new Promise(r => setTimeout(r, MESSAGE_DELAY));
       }
-      console.log(`✅ Sent ${newUpdates.length} update embeds.`);
+      console.log(`✅ Sent ${sent} update embeds.`);
     } else {
       console.log('ℹ️ No new updates.');
     }
 
-    // --- STATUS (delete old + send new) ---
-    if ((newStatus.length > 0 || changedStatus.length > 0) && webhookStatus) {
-      // Delete old status message
+    // --- STATUS: Always send full list if there are projects ---
+    if (repackProjects.length > 0 && webhookStatus) {
+      // Delete previous message
       if (previous.lastStatusMessageId) {
         try {
           const delRes = await fetch(`${webhookStatus}/messages/${previous.lastStatusMessageId}`, { method: 'DELETE' });
-          if (delRes.ok) {
-            console.log('🗑️ Deleted old status message');
-            // Clear the stored ID so we don't try to delete again
-            previous.lastStatusMessageId = null;
-          } else {
-            console.log(`⚠️ Could not delete old status: ${delRes.status}`);
-          }
+          if (delRes.ok) console.log('🗑️ Deleted old status message');
+          else console.log(`⚠️ Could not delete old status: ${delRes.status}`);
         } catch (e) {
           console.log('⚠️ Error deleting old status:', e.message);
         }
       }
 
-      // Build status message
-      let statusText = `${ROLE_STATUS} **📊 Status Update(s):**\n`;
-      if (newStatus.length > 0) {
-        statusText += '\n*New projects added:*\n';
-        newStatus.forEach(p => statusText += `• **${p.name}** – ${p.status.toUpperCase()} (ETA: ${p.eta})\n`);
+      // Build full status list
+      let fullList = '';
+      currentStatus.forEach(p => {
+        let emoji = p.status === 'soon' ? '🟢' : p.status === 'progress' ? '🟡' : '🔵';
+        fullList += `${emoji} **${p.name}** – ${p.status.toUpperCase()}${p.eta ? ` (ETA: ${p.eta})` : ''}\n`;
+      });
+
+      // Build change summary
+      let changesSummary = '';
+      if (newProjects.length) {
+        changesSummary += `\n*New:*\n${newProjects.map(p => `• ${p.name}`).join('\n')}\n`;
       }
-      if (changedStatus.length > 0) {
-        statusText += '\n*Status changes:*\n';
-        changedStatus.forEach(p => {
-          const prev = previous.status.find(s => s.name === p.name);
-          statusText += `• **${p.name}** – ${prev.status} → ${p.status} | ETA: ${prev.eta} → ${p.eta}\n`;
+      if (removedProjects.length) {
+        changesSummary += `\n*Removed:*\n${removedProjects.map(p => `• ${p.name}`).join('\n')}\n`;
+      }
+      if (changedProjects.length) {
+        changesSummary += `\n*Updated:*\n`;
+        changedProjects.forEach(p => {
+          const prev = previousStatusMap[p.name];
+          changesSummary += `• ${p.name} – ${prev.status} → ${p.status} | ETA: ${prev.eta} → ${p.eta}\n`;
         });
       }
-      statusText += '\n📊 Check the Status page for more details!';
 
-      // Send new status with ?wait=true to get the message ID
+      let statusText = `${ROLE_STATUS} **📊 Current Status Updates**\n\n`;
+      statusText += `**Full List:**\n${fullList}`;
+      if (changesSummary) {
+        statusText += `\n**Changes since last update:**${changesSummary}`;
+      } else {
+        statusText += `\n*No changes since last update.*`;
+      }
+      statusText += `\n\n📊 Check the Status page for more details!`;
+
+      // Send new status with ?wait=true
       const result = await sendWebhook(webhookStatus, statusText, null, true);
       if (result.success && result.data && result.data.id) {
         newState.lastStatusMessageId = result.data.id;
         console.log('✅ New status sent and ID saved.');
       } else {
-        console.log('⚠️ Status sent but ID not stored:', result.error || 'unknown');
-        // If the webhook didn't return an ID, don't store one
+        console.log('⚠️ Status sent but ID not stored.');
         newState.lastStatusMessageId = null;
       }
+    } else if (repackProjects.length === 0) {
+      console.log('ℹ️ No status projects to display.');
+      // Optionally send a "no projects" message
+      if (webhookStatus) {
+        if (previous.lastStatusMessageId) {
+          await fetch(`${webhookStatus}/messages/${previous.lastStatusMessageId}`, { method: 'DELETE' });
+        }
+        const emptyMsg = `${ROLE_STATUS} **📊 Status Updates**\n\nNo projects currently in the queue. Check back later!`;
+        const result = await sendWebhook(webhookStatus, emptyMsg, null, true);
+        if (result.success && result.data && result.data.id) {
+          newState.lastStatusMessageId = result.data.id;
+        }
+      }
     } else {
-      console.log('ℹ️ No status changes.');
+      console.log('⚠️ No WEBHOOK_STATUS secret found.');
     }
 
     // ==============================
     // SAVE STATE
     // ==============================
-    // Ensure the directory exists
     const stateDir = path.dirname(stateFile);
     if (!fs.existsSync(stateDir)) {
       fs.mkdirSync(stateDir, { recursive: true });
     }
     fs.writeFileSync(stateFile, JSON.stringify(newState, null, 2));
-    console.log('💾 State saved to:', stateFile);
+    console.log('💾 State saved.');
 
   } catch (error) {
     console.error('❌ Error:', error.message);
