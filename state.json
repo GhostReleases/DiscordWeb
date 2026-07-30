@@ -407,6 +407,18 @@
       "details": ""
     },
     {
+      "name": "Assassins Creed: The Ezio Collection",
+      "status": "planned",
+      "eta": "",
+      "details": "Requested Game"
+    },
+    {
+      "name": "Assassins Creed: Rogue",
+      "status": "planned",
+      "eta": "",
+      "details": "Requested Game"
+    },
+    {
       "name": "Borderlands 3",
       "status": "planned",
       "eta": "",
@@ -419,5 +431,5 @@
       "details": ""
     }
   ],
-  "lastStatusMessageId": "1532012846538559542"
+  "lastStatusMessageId": "1532351299616510133"
 }
