@@ -401,6 +401,11 @@
       "gameId": 21,
       "version": "v1.0.0(Voices38) to v1.1.0(RUNE)",
       "date": "2026-07-24"
+    },
+    {
+      "gameId": 70,
+      "version": "v1.0.3 to v1.0.6",
+      "date": "2026-07-31"
     }
   ],
   "status": [
@@ -414,6 +419,12 @@
       "name": "Assassins Creed: Rogue",
       "status": "soon",
       "eta": "2-4 Days",
+      "details": "Requested Game"
+    },
+    {
+      "name": "Far Cry 6",
+      "status": "planned",
+      "eta": "",
       "details": "Requested Game"
     },
     {
@@ -435,5 +446,5 @@
       "details": ""
     }
   ],
-  "lastStatusMessageId": "1533019746952417280"
+  "lastStatusMessageId": "1533137665212416191"
 }
