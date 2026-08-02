@@ -432,13 +432,13 @@
     {
       "name": "Far Cry 6",
       "status": "soon",
-      "eta": "",
+      "eta": "2-4 Days",
       "details": "Requested Game"
     },
     {
       "name": "Red Dead Redemption 2",
       "status": "soon",
-      "eta": "",
+      "eta": "2-4 Days",
       "details": "Fixing Broken Setup"
     },
     {
@@ -454,5 +454,5 @@
       "details": ""
     }
   ],
-  "lastStatusMessageId": "1533428205837619290"
+  "lastStatusMessageId": "1533501316100522184"
 }
