@@ -442,6 +442,12 @@
       "details": "Fixing Broken Setup"
     },
     {
+      "name": "Divinity: Original Sin 2 - Definitive Edition",
+      "status": "planned",
+      "eta": "",
+      "details": "Requested Game"
+    },
+    {
       "name": "Borderlands 3",
       "status": "planned",
       "eta": "",
@@ -454,5 +460,5 @@
       "details": ""
     }
   ],
-  "lastStatusMessageId": "1533505417953415248"
+  "lastStatusMessageId": "1533574773714452571"
 }
