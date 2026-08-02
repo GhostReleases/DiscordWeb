@@ -58,7 +58,7 @@
     {
       "id": 12,
       "title": "LEGO® Batman™: Legacy of the Dark Knight",
-      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"1.30 GB\",\"urls\":[\"https://vikingfile.com/f/J4CatSZLyn#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"8.50 GB\",\"urls\":[\"https://vikingfile.com/f/DzzYPGm4vv#Part2.zip\"]},{\"name\":\"Part 3\",\"size\":\"12.05 GB(Uncompressable)\",\"urls\":[\"https://vikingfile.com/f/Yae4UEx0kG#Part3.zip\"]},{\"name\":\"Part 4\",\"size\":\"584.88 MB\",\"urls\":[\"https://vikingfile.com/f/mM1oTSIfVi#Part4.zip\"]},{\"name\":\"Part 5\",\"size\":\"15.54 GB(Uncompressable)\",\"urls\":[\"https://vikingfile.com/f/KnUKNU5dgd#Part5.zip\"]},{\"name\":\"Part 6\",\"size\":\"13.00 MB\",\"urls\":[\"https://vikingfile.com/f/apVb64IT2E#Part6.zip\"]}]"
+      "downloadHash": "[{\"name\":\"Part 1 + Setup\",\"size\":\"9.49 GB\",\"urls\":[\"https://fileditchfiles.st/alpha22/662bf7ca9265a9b80c05/Part1_Setup.zip\",\"https://mocha.my/share/IVs0xuJcnOQQ_xo2QKhkS2RHJnF1rGVc\",\"https://vikingfile.com/f/17ZmWatOao#Part1+Setup.zip\"]},{\"name\":\"Part 2\",\"size\":\"12.16 GB\",\"urls\":[\"https://fileditchfiles.st/alpha22/5e3dc2ca03e4a8de5703/Part2.bin\",\"https://mocha.my/share/oOk2-EXGjsMGSNVX6xFe661lKrjODxIj\",\"https://vikingfile.com/f/CuabVjFaSI#Part2.bin\"]},{\"name\":\"Part 3\",\"size\":\"15.09 GB\",\"urls\":[\"https://fileditchfiles.st/alpha22/39bc397cc64467f6c1dc/Part3.bin\",\"https://mocha.my/share/hVBj79O7qt0SjzeA40a9ehOOkqKa8B74\",\"https://vikingfile.com/f/nnksMXNxZT#Part3.bin\"]}]"
     },
     {
       "id": 13,
@@ -454,5 +454,5 @@
       "details": ""
     }
   ],
-  "lastStatusMessageId": "1533501316100522184"
+  "lastStatusMessageId": "1533505417953415248"
 }
