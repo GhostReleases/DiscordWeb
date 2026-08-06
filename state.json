@@ -441,14 +441,14 @@
   "status": [
     {
       "name": "Crimson Desert",
-      "status": "soon",
-      "eta": "2-4 Days",
+      "status": "planned",
+      "eta": "",
       "details": "Requested Game"
     },
     {
       "name": "Avatar Frontiers Of Pandora",
-      "status": "soon",
-      "eta": "2-4 Days",
+      "status": "planned",
+      "eta": "",
       "details": ""
     },
     {
@@ -456,6 +456,12 @@
       "status": "planned",
       "eta": "",
       "details": "Requested Game"
+    },
+    {
+      "name": "Assassin's Creed: Odyssey",
+      "status": "planned",
+      "eta": "",
+      "details": "Fix Broken Repack"
     },
     {
       "name": "Borderlands 3",
@@ -470,5 +476,5 @@
       "details": ""
     }
   ],
-  "lastStatusMessageId": "1534686829264113825"
+  "lastStatusMessageId": "1534866849143980144"
 }
