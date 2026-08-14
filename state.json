@@ -428,6 +428,11 @@
       "date": "2026‑07‑20"
     },
     {
+      "gameId": 1,
+      "version": "v403.798 to v420.696",
+      "date": "2026‑08‑10"
+    },
+    {
       "gameId": 21,
       "version": "v1.0.0(Voices38) to v1.1.0(RUNE)",
       "date": "2026-07-24"
@@ -480,5 +485,5 @@
       "details": ""
     }
   ],
-  "lastStatusMessageId": "1537551991604256788"
+  "lastStatusMessageId": "1537698439217811488"
 }
